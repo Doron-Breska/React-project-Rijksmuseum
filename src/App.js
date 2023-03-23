@@ -1,14 +1,16 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
-import About from './pages/About.jsx'
+import About from './pages/About'
 import ErrorPage from './pages/ErrorPage'
-import NavBar from './components/NavBar'
+// import NavBar from './components/NavBar'
+import NavBootstrap from './components/NavBootstrap'
+
 
 function App() {
   return (
     <>
-      <NavBar/>
+      <NavBootstrap/>
       <Routes>
         <Route path='/' element={ <Home/> } />
         <Route path='*' element={ <ErrorPage/> } />

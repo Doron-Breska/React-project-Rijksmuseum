@@ -10,7 +10,6 @@ function NavBar() {
 
   return (
     <div>
-      <h1>NavBar</h1>
       {/* <div style={{ display: "flex", gap: "1em" }}>
         <Link style={location.pathname === '/' ? linkStyle : null} to='/'>HomePage</Link>
         <Link style={location.pathname === '/about' ? linkStyle : null} to='about' state={ "send this message to about page" }>About</Link>
