@@ -4,7 +4,7 @@ import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function NavBootstrap() {
   return (
@@ -22,7 +22,7 @@ function NavBootstrap() {
               Home
             </Nav.Link>
             <Nav.Link as={Link} to="/About">
-              Link
+              About
             </Nav.Link>
           </Nav>
           <Form className="d-flex">

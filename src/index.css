@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.paintings-container {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+align-items: center;
+}
+.paint { 
+  max-width: 600px ;
+  margin: 0 auto;
+}
+#counters-btn{
+  margin-bottom: 20%;
+}
