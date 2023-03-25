@@ -3,8 +3,10 @@ import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import About from './pages/About'
 import ErrorPage from './pages/ErrorPage'
-// import NavBar from './components/NavBar'
 import NavBootstrap from './components/NavBootstrap'
+import Profile from './pages/Profile'
+import ManageHistory from './pages/profile/ManageHistory'
+import ManageLogInfo from './pages/profile/ManageLogInfo'
 
 
 function App() {
@@ -14,7 +16,11 @@ function App() {
       <Routes>
         <Route path='/' element={ <Home/> } />
         <Route path='*' element={ <ErrorPage/> } />
-        <Route path='/about' element= { <About /> } />
+        <Route path='/about' element={<About />} />
+        <Route path='/profile' element={<Profile />} >
+          <Route path='/profile/manageHistory' element={ <ManageHistory /> } />
+          <Route path='/profile/manageLogInfo' element={ <ManageLogInfo /> } />
+        </Route>
       </Routes>
     </>
   );

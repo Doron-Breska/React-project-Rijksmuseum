@@ -10,7 +10,6 @@ function Cards({ paintings }) {
   const [numLikes, SetNumofLikes] = useState(0);
   const [numComments, SetNumComments] = useState(0);
 
-  console.log("test-test", paintings);
   return (
     <>
       {paintings.map((paint) => {
