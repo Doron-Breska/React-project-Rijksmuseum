@@ -7,8 +7,8 @@ import { BsChatSquareTextFill } from "react-icons/bs";
 import { BsShareFill } from "react-icons/bs";
 
 function Cards({ paintings }) {
-  const [numLikes, SetNumofLikes] = useState(0);
-  const [numComments, SetNumComments] = useState(0);
+  const [numLikes, setNumofLikes] = useState(0);
+  const [numComments, setNumComments] = useState(0);
 
   return (
     <>

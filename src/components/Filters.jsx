@@ -16,7 +16,7 @@ function Filters({ arrayArtists, onSelect }) {
         <br /> you can filter the paint acourdibg to your favorite painter
       </div>
       <div className="selectArtist">
-        <select
+        <Form.Select
           onChange={handleChange}
           aria-label="select an painter"
           id="selectElement"
@@ -27,7 +27,7 @@ function Filters({ arrayArtists, onSelect }) {
               {paint}
             </option>
           ))}
-        </select>
+        </Form.Select>
       </div>
     </>
   );

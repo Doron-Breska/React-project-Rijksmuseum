@@ -7,11 +7,14 @@ import NavBootstrap from './components/NavBootstrap'
 import Profile from './pages/Profile'
 import ManageHistory from './pages/profile/ManageHistory'
 import ManageLogInfo from './pages/profile/ManageLogInfo'
+import { AuthContextProvider } from './contexts/AuthContext'
+
 
 
 function App() {
   return (
     <>
+     <AuthContextProvider>
       <NavBootstrap/>
       <Routes>
         <Route path='/' element={ <Home/> } />
@@ -22,6 +25,7 @@ function App() {
           <Route path='/profile/manageLogInfo' element={ <ManageLogInfo /> } />
         </Route>
       </Routes>
+      </AuthContextProvider>
     </>
   );
 }
