@@ -5,7 +5,6 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 
@@ -30,19 +29,26 @@ function NavBootstrap() {
             <Nav.Link as={Link} to="/about">
               About
             </Nav.Link>
-            <Nav.Link as={Link} to="/profile">
-              Profile
+            <Nav.Link as={Link} to="/registration">
+              Registration
             </Nav.Link>
-            {location.pathname.includes("profile") ? (
+            {isUserLogged && (
               <>
-                <Nav.Link as={Link} to="profile/manageHistory">
-                  manageHistory
+                <Nav.Link as={Link} to="/profile">
+                  Profile
                 </Nav.Link>
-                <Nav.Link as={Link} to="profile/manageLogInfo">
-                  manageLogInfo
-                </Nav.Link>
+                {location.pathname.includes("profile") && (
+                  <>
+                    <Nav.Link as={Link} to="profile/manageHistory">
+                      manageHistory
+                    </Nav.Link>
+                    <Nav.Link as={Link} to="profile/manageLogInfo">
+                      manageLogInfo
+                    </Nav.Link>
+                  </>
+                )}
               </>
-            ) : null}
+            )}
           </Nav>
           {isUserLogged ? (
             <Button

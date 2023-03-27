@@ -8,6 +8,8 @@ import Profile from './pages/Profile'
 import ManageHistory from './pages/profile/ManageHistory'
 import ManageLogInfo from './pages/profile/ManageLogInfo'
 import { AuthContextProvider } from './contexts/AuthContext'
+import ProtectdedRoute from './components/ProtectedRoute'
+import Registration from './pages/Registration'
 
 
 
@@ -20,7 +22,8 @@ function App() {
         <Route path='/' element={ <Home/> } />
         <Route path='*' element={ <ErrorPage/> } />
         <Route path='/about' element={<About />} />
-        <Route path='/profile' element={<Profile />} >
+        <Route path='/registration' element={<Registration  props={"register"}/>} />
+        <Route path='/profile' element={<ProtectdedRoute><Profile /></ProtectdedRoute>} >
           <Route path='/profile/manageHistory' element={ <ManageHistory /> } />
           <Route path='/profile/manageLogInfo' element={ <ManageLogInfo /> } />
         </Route>
