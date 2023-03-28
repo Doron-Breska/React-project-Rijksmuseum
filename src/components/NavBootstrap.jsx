@@ -9,8 +9,7 @@ import { useLocation } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 
 function NavBootstrap() {
-  // const [isUserLogged, SetIsUserLogged] = useState(true);
-  const { isUserLogged, logIn, logOut } = useContext(AuthContext);
+  const { isUserLogged, logOut } = useContext(AuthContext);
   const location = useLocation();
   return (
     <Navbar bg="light" expand="md">
@@ -72,11 +71,7 @@ function NavBootstrap() {
                 className="me-2"
                 aria-label="password"
               />
-              <Button
-                onClick={logIn}
-                style={{ width: "10rem" }}
-                variant="outline-success"
-              >
+              <Button style={{ width: "10rem" }} variant="outline-success">
                 log-In
               </Button>
             </Form>

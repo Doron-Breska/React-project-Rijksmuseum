@@ -22,7 +22,7 @@ function App() {
         <Route path='/' element={ <Home/> } />
         <Route path='*' element={ <ErrorPage/> } />
         <Route path='/about' element={<About />} />
-        <Route path='/registration' element={<Registration  props={"register"}/>} />
+        <Route path='/registration' element={<Registration />} />
         <Route path='/profile' element={<ProtectdedRoute><Profile /></ProtectdedRoute>} >
           <Route path='/profile/manageHistory' element={ <ManageHistory /> } />
           <Route path='/profile/manageLogInfo' element={ <ManageLogInfo /> } />
