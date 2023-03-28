@@ -57,9 +57,11 @@ function NavBootstrap() {
             <Nav.Link as={Link} to="/about">
               About
             </Nav.Link>
-            <Nav.Link as={Link} to="/registration">
-              Registration
-            </Nav.Link>
+            {!isUserLogged && (
+              <Nav.Link as={Link} to="/registration">
+                Registration
+              </Nav.Link>
+            )}
             {isUserLogged && (
               <>
                 <Nav.Link as={Link} to="/profile">

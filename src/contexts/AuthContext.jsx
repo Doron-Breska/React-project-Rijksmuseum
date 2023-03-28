@@ -12,12 +12,9 @@ export const AuthContextProvider = (props) => {
     auth.onAuthStateChanged((user) => {
       if (user) {
         setIsUserLogged(user);
-        console.log(
-          "this is a test for seeing the user after refreshing the page",
-          user
-        );
+        console.log("test for seeing the user after refreshing the page", user);
       } else {
-        setIsUserLogged(null);
+        setIsUserLogged(false);
       }
     });
   };
@@ -35,9 +32,10 @@ export const AuthContextProvider = (props) => {
     setIsUserLogged(false);
     console.log("user logged out");
   };
+  console.log("test-test", isUserLogged);
 
   return (
-    <AuthContext.Provider value={{ isUserLogged, logOut, setUserOnLogin }}>
+    <AuthContext.Provider value={{ logOut, setUserOnLogin, isUserLogged }}>
       {props.children}
     </AuthContext.Provider>
   );

@@ -49,7 +49,6 @@ function Registration() {
           We'll never share your email with anyone else.
         </Form.Text>
       </Form.Group>
-      {/* controlId="password"controlId="email" */}
       <Form.Group className="mb-3">
         <Form.Label>Password</Form.Label>
         <Form.Control
