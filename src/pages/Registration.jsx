@@ -16,6 +16,7 @@ function Registration() {
       .then((userCredential) => {
         const user = userCredential.user;
         console.log(user);
+        alert("Registration has been successfully completed");
         setEmail("");
         setPassword("");
       })
@@ -36,7 +37,7 @@ function Registration() {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Form.Group className="mb-3" controlId="email">
+      <Form.Group className="mb-3">
         <Form.Label>Email address</Form.Label>
         <Form.Control
           type="email"
@@ -48,8 +49,8 @@ function Registration() {
           We'll never share your email with anyone else.
         </Form.Text>
       </Form.Group>
-
-      <Form.Group className="mb-3" controlId="password">
+      {/* controlId="password"controlId="email" */}
+      <Form.Group className="mb-3">
         <Form.Label>Password</Form.Label>
         <Form.Control
           type="password"

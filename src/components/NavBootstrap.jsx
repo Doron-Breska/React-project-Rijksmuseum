@@ -3,14 +3,43 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
+import { auth } from "../components/FbConfig";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 function NavBootstrap() {
-  const { isUserLogged, logOut } = useContext(AuthContext);
+  const { isUserLogged, logOut, setUserOnLogin } = useContext(AuthContext);
   const location = useLocation();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      const user = auth.currentUser;
+      setUserOnLogin(user);
+      console.log(user);
+      setEmail("");
+      setPassword("");
+    } catch (error) {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorCode, errorMessage);
+    }
+  };
+
+  function handleEmailChange(event) {
+    setEmail(event.target.value);
+  }
+
+  function handlePasswordChange(event) {
+    setPassword(event.target.value);
+  }
+
   return (
     <Navbar bg="light" expand="md">
       <Container fluid>
@@ -58,20 +87,29 @@ function NavBootstrap() {
               Log-Out
             </Button>
           ) : (
-            <Form className="d-flex">
-              <Form.Control
-                type="text"
-                placeholder="User Name"
-                className="me-2"
-                aria-label="user name"
-              />
-              <Form.Control
-                type="password"
-                placeholder="password"
-                className="me-2"
-                aria-label="password"
-              />
-              <Button style={{ width: "10rem" }} variant="outline-success">
+            <Form className="d-flex" onSubmit={handleSubmit}>
+              <Form.Group controlId="email">
+                <Form.Control
+                  type="email"
+                  placeholder="Enter email"
+                  value={email}
+                  onChange={handleEmailChange}
+                />
+              </Form.Group>
+              <Form.Group controlId="password">
+                <Form.Control
+                  type="password"
+                  placeholder="Password"
+                  value={password}
+                  onChange={handlePasswordChange}
+                />
+              </Form.Group>
+
+              <Button
+                style={{ width: "10rem" }}
+                variant="outline-success"
+                type="submit"
+              >
                 log-In
               </Button>
             </Form>
