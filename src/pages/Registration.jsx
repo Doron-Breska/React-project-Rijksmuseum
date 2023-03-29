@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../components/FbConfig";
 import { AuthContext } from "../contexts/AuthContext.jsx";
 
@@ -9,16 +9,22 @@ function Registration() {
   const { isUserLogged } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const [displayName, setDisplayName] = useState("");
   function handleSubmit(event) {
     event.preventDefault();
+
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
         console.log(user);
+        return updateProfile(user, { displayName });
+      })
+      .then(() => {
+        console.log("Profile updated successfully!");
         alert("Registration has been successfully completed");
         setEmail("");
         setPassword("");
+        setDisplayName("");
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -33,6 +39,9 @@ function Registration() {
 
   function handlePasswordChange(event) {
     setPassword(event.target.value);
+  }
+  function handleDisplayNameChange(event) {
+    setDisplayName(event.target.value);
   }
 
   return (
@@ -56,6 +65,15 @@ function Registration() {
           placeholder="Password"
           value={password}
           onChange={handlePasswordChange}
+        />
+      </Form.Group>
+      <Form.Group className="mb-3">
+        <Form.Label>displayName</Form.Label>
+        <Form.Control
+          type="test"
+          placeholder="displayName"
+          value={displayName}
+          onChange={handleDisplayNameChange}
         />
       </Form.Group>
       <Button variant="primary" type="submit">
