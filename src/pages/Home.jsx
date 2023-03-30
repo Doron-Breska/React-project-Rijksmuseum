@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Cards from "../components/Cards";
+// import Cards from "../components/Cards";
 import Filters from "../components/Filters";
+import CardsModal from "../components/CardsModal";
 
 function Home() {
   const [paintings, setPaintings] = useState([]);
@@ -43,7 +44,7 @@ function Home() {
       {loading && <h1 className="text-center m-1">LOADING...</h1>}
       <Filters onSelect={handleSelect} arrayArtists={Array.from(artistsSet)} />
       <div className="paintings-container">
-        <Cards paintings={paintings} />
+        <CardsModal paintings={paintings} />
       </div>
     </>
   );

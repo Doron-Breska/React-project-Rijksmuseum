@@ -1,14 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "react-bootstrap/Card";
-import { BsFillHeartFill } from "react-icons/bs";
+import {
+  BsFillHeartFill,
+  BsChatSquareTextFill,
+  BsShareFill,
+} from "react-icons/bs";
 import Button from "react-bootstrap/Button";
-import { useState } from "react";
-import { BsChatSquareTextFill } from "react-icons/bs";
-import { BsShareFill } from "react-icons/bs";
+import ModalBack from "./ModalBack";
 
-function Cards({ paintings }) {
+function CardsModal({ paintings }) {
   const [numLikes, setNumofLikes] = useState(0);
   const [numComments, setNumComments] = useState(0);
+  const [showComments, setShowComments] = useState(false);
+  const [selectedPainting, setSelectedPainting] = useState({});
+
+  function handleCommentsClick(paint) {
+    setSelectedPainting(paint);
+    setShowComments(true);
+  }
+
+  function handleCloseComments() {
+    setSelectedPainting(null);
+    setShowComments(false);
+  }
 
   return (
     <>
@@ -36,7 +50,11 @@ function Cards({ paintings }) {
               <Button variant="secondary">
                 <BsFillHeartFill />
               </Button>
-              <Button id="comments" variant="secondary">
+              <Button
+                id="comments"
+                variant="secondary"
+                onClick={() => handleCommentsClick(paint)}
+              >
                 <BsChatSquareTextFill />
               </Button>
               <Button variant="secondary">
@@ -46,8 +64,13 @@ function Cards({ paintings }) {
           </Card>
         );
       })}
+      <ModalBack
+        selectedPainting={selectedPainting}
+        show={showComments}
+        handleClose={handleCloseComments}
+      />
     </>
   );
 }
 
-export default Cards;
+export default CardsModal;

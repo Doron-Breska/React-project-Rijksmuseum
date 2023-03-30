@@ -10,10 +10,6 @@ function Profile() {
     //   <Outlet />
     // </div>
     <>
-      {/* {location.pathname.includes("manageHistory") ||
-      location.pathname.includes("manageLogInfo") ? (
-        <Outlet />
-      ) : null} */}
       {(location.pathname.includes("manageHistory") ||
         location.pathname.includes("manageLogInfo")) && <Outlet />}
       <h1>General info about the user </h1>

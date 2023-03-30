@@ -49,7 +49,7 @@ function ManageLogInfo() {
   };
 
   return (
-    <>
+    <div>
       <h1>manage your account info here</h1>
       <Reauthenticate />
       <Form onSubmit={handleSubmit}>
@@ -93,7 +93,7 @@ function ManageLogInfo() {
           Submit
         </Button>
       </Form>
-    </>
+    </div>
   );
 }
 

@@ -25,3 +25,7 @@ align-items: center;
 #counters-btn{
   margin-bottom: 20%;
 }
+
+#comments {
+  z-index: 999;
+}
