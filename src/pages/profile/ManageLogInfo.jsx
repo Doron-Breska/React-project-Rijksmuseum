@@ -1,11 +1,11 @@
 import React from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 import { useContext, useState } from "react";
-import { getAuth } from "firebase/auth";
 import { updateEmail, updatePassword, updateProfile } from "firebase/auth";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Reauthenticate from "../../components/Reauthenticate";
+import { getAuth } from "firebase/auth";
 
 function ManageLogInfo() {
   const { isUserLogged } = useContext(AuthContext);

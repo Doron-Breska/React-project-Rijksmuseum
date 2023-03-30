@@ -1,9 +1,10 @@
 import React, { useContext, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { updateProfile } from "firebase/auth";
 import { auth } from "../components/FbConfig";
 import { AuthContext } from "../contexts/AuthContext.jsx";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 function Registration() {
   const { isUserLogged } = useContext(AuthContext);
