@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCOfOG6Tx0gL652QelYZUhXvgu3_2IISwc",
-  authDomain: "rijksmuseum-react-project.firebaseapp.com",
-  projectId: "rijksmuseum-react-project",
-  storageBucket: "rijksmuseum-react-project.appspot.com",
-  messagingSenderId: "976236781861",
-  appId: "1:976236781861:web:112a92c560742d5636facc",
+  apiKey: "AIzaSyArd9Cx87AzX8kYLDLrpFN7kYnl_m4Zu0Y",
+  authDomain: "rijksmuseum-e5635.firebaseapp.com",
+  projectId: "rijksmuseum-e5635",
+  storageBucket: "rijksmuseum-e5635.appspot.com",
+  messagingSenderId: "831647244635",
+  appId: "1:831647244635:web:15996874ea5c4bf5647a7e",
 };
 
 const app = initializeApp(firebaseConfig);

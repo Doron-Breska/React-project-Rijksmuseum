@@ -1,37 +1,49 @@
-import React, { useContext, useState } from "react";
+// import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { updateProfile } from "firebase/auth";
 import { auth } from "../components/FbConfig";
-import { AuthContext } from "../contexts/AuthContext.jsx";
+// import { AuthContext } from "../contexts/AuthContext.jsx";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { getFirestore, doc, setDoc } from "firebase/firestore";
 
 function Registration() {
-  const { isUserLogged } = useContext(AuthContext);
+  // const { isUserLogged } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [displayName, setDisplayName] = useState("");
-  function handleSubmit(event) {
+
+  const db = getFirestore();
+
+  async function handleSubmit(event) {
     event.preventDefault();
 
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        console.log(user);
-        return updateProfile(user, { displayName });
-      })
-      .then(() => {
-        console.log("Profile updated successfully!");
-        alert("Registration has been successfully completed");
-        setEmail("");
-        setPassword("");
-        setDisplayName("");
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorMessage, errorCode);
-      });
+    try {
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const user = userCredential.user;
+      console.log(user);
+
+      // Wait for both updateProfile and setDoc to complete
+      await Promise.all([
+        updateProfile(user, { displayName }),
+        setDoc(doc(db, "users", user.uid), {}),
+      ]);
+
+      console.log("Profile updated and document created successfully!");
+      alert("Registration has been successfully completed");
+      setEmail("");
+      setPassword("");
+      setDisplayName("");
+    } catch (error) {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorMessage, errorCode);
+    }
   }
 
   function handleEmailChange(event) {

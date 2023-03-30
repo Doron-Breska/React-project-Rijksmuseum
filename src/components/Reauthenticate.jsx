@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
-import { getAuth, reauthenticateWithCredential } from "firebase/auth";
+import { reauthenticateWithCredential } from "firebase/auth";
 import Button from "react-bootstrap/Button";
 import { EmailAuthProvider } from "firebase/auth";
 
@@ -8,7 +8,6 @@ function Reauthenticate() {
   const { isUserLogged } = useContext(AuthContext);
 
   const handleReauthenticate = async () => {
-    const auth = getAuth();
     const user = isUserLogged;
 
     try {

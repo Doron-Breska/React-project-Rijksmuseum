@@ -5,7 +5,6 @@ import { updateEmail, updatePassword, updateProfile } from "firebase/auth";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Reauthenticate from "../../components/Reauthenticate";
-import { getAuth } from "firebase/auth";
 
 function ManageLogInfo() {
   const { isUserLogged } = useContext(AuthContext);
@@ -15,7 +14,6 @@ function ManageLogInfo() {
   const [photoURL, setPhotoURL] = useState("");
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const auth = getAuth();
     const user = isUserLogged;
 
     try {
