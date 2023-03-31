@@ -2,12 +2,7 @@ import React, { useState, useEffect } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import {
-  addDoc,
-  collection,
-  serverTimestamp,
-  getDocs,
-} from "firebase/firestore";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { AuthContext } from "../contexts/AuthContext";
 import { useContext } from "react";
 import { db } from "../components/FbConfig";
@@ -26,10 +21,13 @@ function ModalBack({ selectedPainting, show, handleClose }) {
   function handleInputChange(event) {
     setInputValue(event.target.value);
   }
+  console.log("test for image web url", selectedPainting);
 
   async function addComment(e) {
     e.preventDefault();
     const paintingId = selectedPainting.id;
+    const paintingTitle = selectedPainting.title;
+    const paintingUrl = selectedPainting.webImage.url;
     const userId = isUserLogged.uid;
     const commentText = inputValue;
     const userName = isUserLogged.displayName;
@@ -37,6 +35,8 @@ function ModalBack({ selectedPainting, show, handleClose }) {
     const commentData = {
       paintingId: paintingId,
       userId: userId,
+      paintingTitle: paintingTitle,
+      paintingUrl: paintingUrl,
       commentText: commentText,
       userName: userName,
       timestamp: serverTimestamp(),

@@ -1,7 +1,13 @@
 import React from "react";
+import ManageComments from "../../components/ManageComments";
 
 function ManageHistory() {
-  return <div>manage ur likes / comments etc.. </div>;
+  return (
+    <div>
+      <h1>manage ur likes / comments etc.. </h1>
+      <ManageComments />
+    </div>
+  );
 }
 
 export default ManageHistory;
