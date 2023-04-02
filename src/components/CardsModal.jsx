@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Card from "react-bootstrap/Card";
 import {
   BsFillHeartFill,
@@ -7,12 +7,25 @@ import {
 } from "react-icons/bs";
 import Button from "react-bootstrap/Button";
 import ModalBack from "./ModalBack";
+import { useContext } from "react";
+import { AuthContext } from "../contexts/AuthContext";
+import {
+  addDoc,
+  collection,
+  deleteDoc,
+  query,
+  serverTimestamp,
+  where,
+  getDocs,
+} from "firebase/firestore";
+import { db } from "../components/FbConfig";
 
 function CardsModal({ paintings }) {
-  const [numLikes, setNumofLikes] = useState(0);
+  const [numLikes, setNumLikes] = useState(0);
   const [numComments, setNumComments] = useState(0);
   const [showComments, setShowComments] = useState(false);
   const [selectedPainting, setSelectedPainting] = useState({});
+  const { isUserLogged } = useContext(AuthContext);
 
   function handleCommentsClick(paint) {
     setSelectedPainting(paint);
@@ -23,6 +36,67 @@ function CardsModal({ paintings }) {
     setSelectedPainting(null);
     setShowComments(false);
   }
+  async function handleLikeButtonClick(paint) {
+    const userId = isUserLogged.uid;
+    const paintingId = paint.id;
+    const paintingUrl = paint.webImage.url;
+    const paintingTitle = paint.title;
+
+    // Check if the user already liked the painting
+    const likesRef = collection(db, "likes");
+    const likesQuery = query(
+      likesRef,
+      where("userId", "==", userId),
+      where("paintingId", "==", paintingId)
+    );
+    const snapshot = await getDocs(likesQuery);
+
+    if (snapshot.empty) {
+      // User didn't like the painting yet, so add a like
+      const likeData = {
+        paintingId: paintingId,
+        userId: userId,
+        paintingTitle: paintingTitle,
+        paintingUrl: paintingUrl,
+        timestamp: serverTimestamp(),
+      };
+      try {
+        const docRef = await addDoc(collection(db, "likes"), likeData);
+        console.log("Like added with ID: ", docRef.id);
+      } catch (e) {
+        console.error("Error adding like: ", e);
+      }
+    } else {
+      // User already liked the painting, so remove the like
+      try {
+        const likeDoc = snapshot.docs[0];
+        await deleteDoc(likeDoc.ref);
+        console.log("Like removed.");
+      } catch (e) {
+        console.error("Error removing like: ", e);
+      }
+    }
+
+    // Update the numLikes variable
+    fetchNumLikes(paintingId);
+  }
+
+  async function fetchNumLikes(paintingId) {
+    const likesRef = collection(db, "likes");
+    const numLikesSnapshot = await getDocs(
+      query(likesRef, where("paintingId", "==", paintingId))
+    );
+    setNumLikes((prevNumLikes) => ({
+      ...prevNumLikes,
+      [paintingId]: numLikesSnapshot.size,
+    }));
+  }
+
+  useEffect(() => {
+    paintings.forEach((paint) => {
+      fetchNumLikes(paint.id);
+    });
+  }, [paintings]);
 
   return (
     <>
@@ -37,7 +111,7 @@ function CardsModal({ paintings }) {
                 disabled
                 id="counters-btn"
               >
-                {numLikes} - <BsFillHeartFill />
+                {numLikes[paint.id] || 0} - <BsFillHeartFill />
                 <br />
                 {numComments} - <BsChatSquareTextFill />
               </Button>
@@ -47,17 +121,27 @@ function CardsModal({ paintings }) {
             </Card.ImgOverlay>
             <Card.Text className="text-center">{paint.longTitle}</Card.Text>
             <Card.Text className="d-flex justify-content-between">
-              <Button variant="secondary">
+              <Button
+                disabled={!isUserLogged}
+                variant="secondary"
+                id="like-btn"
+                onClick={() => handleLikeButtonClick(paint)}
+              >
                 <BsFillHeartFill />
               </Button>
               <Button
-                id="comments"
+                disabled={!isUserLogged}
+                id="comments-btn"
                 variant="secondary"
                 onClick={() => handleCommentsClick(paint)}
               >
                 <BsChatSquareTextFill />
               </Button>
-              <Button variant="secondary">
+              <Button
+                disabled={!isUserLogged}
+                id="share-btn"
+                variant="secondary"
+              >
                 <BsShareFill />
               </Button>
             </Card.Text>
@@ -68,6 +152,7 @@ function CardsModal({ paintings }) {
         selectedPainting={selectedPainting}
         show={showComments}
         handleClose={handleCloseComments}
+        numComments={numComments}
       />
     </>
   );
