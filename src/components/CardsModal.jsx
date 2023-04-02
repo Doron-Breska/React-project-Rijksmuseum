@@ -92,11 +92,59 @@ function CardsModal({ paintings }) {
     }));
   }
 
+  async function fetchNumComments(paintingId) {
+    const commentsRef = collection(db, "comments");
+    const numCommentsSnapshot = await getDocs(
+      query(commentsRef, where("paintingId", "==", paintingId))
+    );
+    setNumComments((prevNumComments) => ({
+      ...prevNumComments,
+      [paintingId]: numCommentsSnapshot.size,
+    }));
+  }
+
   useEffect(() => {
     paintings.forEach((paint) => {
       fetchNumLikes(paint.id);
     });
   }, [paintings]);
+
+  useEffect(() => {
+    paintings.forEach((paint) => {
+      fetchNumLikes(paint.id);
+      fetchNumComments(paint.id);
+    });
+  }, [paintings]);
+
+  function updateNumComments(paintingId) {
+    fetchNumComments(paintingId);
+  }
+
+  function handleShareButtonClick(paint) {
+    const paintingUrl = paint.webImage.url;
+    const paintingTitle = paint.title;
+
+    const shareData = {
+      title: `I saw this painting and thought of you, it's called - ${paintingTitle}`,
+      text: `Here's the link - ${paintingUrl}`,
+      url: paintingUrl,
+    };
+
+    if (navigator.share) {
+      navigator
+        .share(shareData)
+        .then(() => console.log("Successful share"))
+        .catch((error) => console.log("Error sharing", error));
+    } else {
+      const emailSubject = encodeURIComponent(
+        `I saw this painting and thought of you, it's called - ${paintingTitle}`
+      );
+      const emailBody = encodeURIComponent(`Here's the link - ${paintingUrl}`);
+      const mailtoLink = `mailto:?subject=${emailSubject}&body=${emailBody}`;
+
+      window.open(mailtoLink, "_blank");
+    }
+  }
 
   return (
     <>
@@ -113,7 +161,7 @@ function CardsModal({ paintings }) {
               >
                 {numLikes[paint.id] || 0} - <BsFillHeartFill />
                 <br />
-                {numComments} - <BsChatSquareTextFill />
+                {numComments[paint.id] || 0} - <BsChatSquareTextFill />
               </Button>
               <Card.Title className="bg-secondary d-inline px-1">
                 {paint.title}
@@ -141,6 +189,7 @@ function CardsModal({ paintings }) {
                 disabled={!isUserLogged}
                 id="share-btn"
                 variant="secondary"
+                onClick={() => handleShareButtonClick(paint)}
               >
                 <BsShareFill />
               </Button>
@@ -152,7 +201,7 @@ function CardsModal({ paintings }) {
         selectedPainting={selectedPainting}
         show={showComments}
         handleClose={handleCloseComments}
-        numComments={numComments}
+        updateNumComments={updateNumComments}
       />
     </>
   );

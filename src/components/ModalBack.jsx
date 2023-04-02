@@ -8,7 +8,7 @@ import { useContext } from "react";
 import { db } from "../components/FbConfig";
 import { query, where, onSnapshot } from "firebase/firestore";
 
-function ModalBack({ selectedPainting, show, handleClose }) {
+function ModalBack({ selectedPainting, show, handleClose, updateNumComments }) {
   const { isUserLogged } = useContext(AuthContext);
   const [fullscreen, setFullscreen] = useState("md - down");
   const [inputValue, setInputValue] = useState("");
@@ -46,6 +46,7 @@ function ModalBack({ selectedPainting, show, handleClose }) {
       console.log("Comment added with ID: ", docRef.id);
       alert("comment added");
       setInputValue("");
+      updateNumComments(paintingId);
     } catch (e) {
       console.error("Error adding comment: ", e);
     }
