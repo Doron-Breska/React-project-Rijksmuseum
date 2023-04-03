@@ -5,6 +5,7 @@ import { updateEmail, updatePassword, updateProfile } from "firebase/auth";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Reauthenticate from "../../components/Reauthenticate";
+import UsersDetailsTable from "../../components/UsersDetailsTable";
 
 function ManageLogInfo() {
   const { isUserLogged } = useContext(AuthContext);
@@ -29,14 +30,19 @@ function ManageLogInfo() {
         setPassword("");
       }
 
-      if (displayName !== "" || photoURL !== "") {
+      if (displayName !== "") {
         await updateProfile(user, {
           displayName: displayName,
+        });
+        console.log("displayName updated successfully");
+        setDisplayName("");
+      }
+      if (photoURL !== "") {
+        await updateProfile(user, {
           photoURL: photoURL,
         });
-        console.log("Profile updated successfully");
+        console.log("photoURL updated successfully");
         setPhotoURL("");
-        setDisplayName("");
       }
 
       // Show success message to user here

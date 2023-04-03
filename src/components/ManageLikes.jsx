@@ -59,7 +59,11 @@ function ManageLikes() {
     <div className="manage-likes">
       {likes.length === 0 && <h3>No liked paintings yet</h3>}
       {likes.map((like) => (
-        <div key={like.id} className="liked-painting">
+        <div
+          key={like.id}
+          className="liked-painting"
+          style={{ width: "200px" }}
+        >
           <img
             style={{ display: "block", width: "200px" }}
             src={like.paintingUrl}
