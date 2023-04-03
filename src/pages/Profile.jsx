@@ -1,9 +1,10 @@
 import React from "react";
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import UsersDetailsTable from "../components/UsersDetailsTable";
+// import { useLocation } from "react-router-dom";
 
 function Profile() {
-  const location = useLocation();
+  // const location = useLocation();
 
   return (
     <div>

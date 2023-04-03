@@ -70,10 +70,13 @@ function NavBootstrap() {
                 {location.pathname.includes("profile") && (
                   <>
                     <Nav.Link as={Link} to="profile/manageHistory">
-                      manageHistory
+                      History
                     </Nav.Link>
                     <Nav.Link as={Link} to="profile/manageLogInfo">
-                      manageLogInfo
+                      Log-In Info
+                    </Nav.Link>
+                    <Nav.Link as={Link} to="profile/memoryGame">
+                      Memory Game
                     </Nav.Link>
                   </>
                 )}

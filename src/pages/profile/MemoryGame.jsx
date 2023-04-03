@@ -1,20 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { AuthContext } from "../contexts/AuthContext";
+import { AuthContext } from "../../contexts/AuthContext";
 import { useContext } from "react";
-import { db } from "../components/FbConfig";
-import {
-  query,
-  where,
-  collection,
-  onSnapshot,
-  doc,
-  deleteDoc,
-} from "firebase/firestore";
-import Button from "react-bootstrap/Button";
+import { db } from "../../components/FbConfig";
+import { query, where, collection, onSnapshot } from "firebase/firestore";
 
-function ManageLikes() {
+function MemoryGame() {
   const { isUserLogged } = useContext(AuthContext);
   const [likes, setLikes] = useState([]);
+  const [arrayOfImageUrls, setArrayOfImageUrls] = useState([]);
 
   function fetchLikes() {
     const userId = isUserLogged.uid;
@@ -45,14 +38,14 @@ function ManageLikes() {
     };
   }, []);
 
-  async function unlikePainting(likeId) {
-    try {
-      await deleteDoc(doc(db, "likes", likeId));
-      console.log("Like removed.");
-    } catch (e) {
-      console.error("Error unliking painting: ", e);
-    }
-  }
+  useEffect(() => {
+    setArrayOfImageUrls(
+      likes.map((like) => {
+        return like.paintingUrl;
+      })
+    );
+  }, [likes]);
+  console.log("test array of urls", arrayOfImageUrls);
 
   return (
     <div className="manage-likes">
@@ -68,15 +61,9 @@ function ManageLikes() {
             src={like.paintingUrl}
             alt={like.paintingTitle}
           />
-          <div className="paintingTitle">{like.paintingTitle}</div>
-          <div className="likeTimestamp">
-            {like.timestamp && like.timestamp.toDate().toLocaleString()}
-          </div>
-          <Button onClick={() => unlikePainting(like.id)}>UNLIKE</Button>
         </div>
       ))}
     </div>
   );
 }
-
-export default ManageLikes;
+export default MemoryGame;

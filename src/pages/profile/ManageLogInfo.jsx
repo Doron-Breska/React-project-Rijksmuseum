@@ -5,7 +5,6 @@ import { updateEmail, updatePassword, updateProfile } from "firebase/auth";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Reauthenticate from "../../components/Reauthenticate";
-import UsersDetailsTable from "../../components/UsersDetailsTable";
 
 function ManageLogInfo() {
   const { isUserLogged } = useContext(AuthContext);

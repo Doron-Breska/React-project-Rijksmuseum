@@ -10,6 +10,7 @@ import ManageLogInfo from './pages/profile/ManageLogInfo'
 import { AuthContextProvider } from './contexts/AuthContext'
 import ProtectdedRoute from './components/ProtectedRoute'
 import Registration from './pages/Registration'
+import MemoryGame from './pages/profile/MemoryGame'
 
 
 
@@ -25,7 +26,8 @@ function App() {
         <Route path='/registration' element={<Registration />} />
         <Route path='/profile' element={<ProtectdedRoute><Profile /></ProtectdedRoute>} >
           <Route path='/profile/manageHistory' element={ <ManageHistory /> } />
-          <Route path='/profile/manageLogInfo' element={ <ManageLogInfo /> } />
+          <Route path='/profile/manageLogInfo' element={<ManageLogInfo />} />
+          <Route path='/profile/memoryGame' element={ <MemoryGame /> } />
         </Route>
       </Routes>
       </AuthContextProvider>
