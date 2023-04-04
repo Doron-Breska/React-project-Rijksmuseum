@@ -5,6 +5,7 @@ import { updateEmail, updatePassword, updateProfile } from "firebase/auth";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Reauthenticate from "../../components/Reauthenticate";
+import { FiEdit } from "react-icons/fi";
 
 function ManageLogInfo() {
   const { isUserLogged } = useContext(AuthContext);
@@ -55,9 +56,11 @@ function ManageLogInfo() {
     <div>
       <h1>manage your account info here</h1>
       <Reauthenticate />
-      <Form onSubmit={handleSubmit}>
+      <Form className="edit-profile-form" onSubmit={handleSubmit}>
         <Form.Group className="mb-3">
-          <Form.Label>Enter a new email</Form.Label>
+          <Form.Label>
+            Enter a new email <FiEdit />
+          </Form.Label>
           <Form.Control
             type="email"
             placeholder="Enter a new email"
@@ -66,7 +69,9 @@ function ManageLogInfo() {
           />
         </Form.Group>
         <Form.Group className="mb-3">
-          <Form.Label>Enter a new Password</Form.Label>
+          <Form.Label>
+            Enter a new Password <FiEdit />
+          </Form.Label>
           <Form.Control
             type="password"
             placeholder="Enter a new password"
@@ -75,7 +80,9 @@ function ManageLogInfo() {
           />
         </Form.Group>
         <Form.Group className="mb-3">
-          <Form.Label>Enter a new username</Form.Label>
+          <Form.Label>
+            Enter a new username <FiEdit />
+          </Form.Label>
           <Form.Control
             type="text"
             placeholder="Enter a new username"
@@ -84,9 +91,11 @@ function ManageLogInfo() {
           />
         </Form.Group>
         <Form.Group className="mb-3">
-          <Form.Label>Photo</Form.Label>
+          <Form.Label>
+            Photo <FiEdit />
+          </Form.Label>
           <Form.Control
-            type="text"
+            type="url"
             placeholder="Enter a photoURL"
             value={photoURL}
             onChange={(e) => setPhotoURL(e.target.value)}

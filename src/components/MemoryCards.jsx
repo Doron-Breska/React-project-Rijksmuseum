@@ -11,7 +11,6 @@ function MemoryCard({ imageUrl }) {
 
   return (
     <div
-      // className={`memory-card ${isFlipped ? "flipped" : ""}`}
       onClick={handleClick}
       style={{ width: "250px", height: "370px", border: "1px solid black" }}
     >
