@@ -22,32 +22,34 @@ function UsersDetailsTable() {
   // }
   ///////
   return (
-    <Table striped bordered hover>
-      <thead>
-        <tr>
-          <th>UserName</th>
-          <th>Email</th>
-          <th>Photo</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>{isUserLogged && isUserLogged.displayName}</td>
-          <td>{isUserLogged && isUserLogged.email}</td>
-          <td>
-            {isUserLogged.photoURL ? (
-              <img
-                style={{ width: "200px" }}
-                src={isUserLogged.photoURL}
-                alt="profile pic"
-              ></img>
-            ) : (
-              "you didn't set a pic yet"
-            )}
-          </td>
-        </tr>
-      </tbody>
-    </Table>
+    <div className="user-info-table">
+      <Table striped bordered hover>
+        <thead>
+          <tr>
+            <th>UserName</th>
+            <th>Email</th>
+            <th>Photo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{isUserLogged && isUserLogged.displayName}</td>
+            <td>{isUserLogged && isUserLogged.email}</td>
+            <td>
+              {isUserLogged.photoURL ? (
+                <img
+                  style={{ width: "200px" }}
+                  src={isUserLogged.photoURL}
+                  alt="profile pic"
+                ></img>
+              ) : (
+                "you didn't set a pic yet"
+              )}
+            </td>
+          </tr>
+        </tbody>
+      </Table>
+    </div>
   );
 }
 

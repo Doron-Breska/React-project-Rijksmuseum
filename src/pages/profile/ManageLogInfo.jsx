@@ -13,10 +13,14 @@ function ManageLogInfo() {
   const [password, setPassword] = useState("");
   const [displayName, setDisplayName] = useState("");
   const [photoURL, setPhotoURL] = useState("");
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const user = isUserLogged;
+  const [showEmailInput, setShowEmailInput] = useState(false);
+  const [showPasswordInput, setShowPasswordInput] = useState(false);
+  const [showDisplayNameInput, setShowDisplayNameInput] = useState(false);
+  const [showPhotoURLInput, setShowPhotoURLInput] = useState(false);
 
+  const handleSubmit = async (e) => {
+    // e.preventDefault();
+    const user = isUserLogged;
     try {
       if (email !== "") {
         await updateEmail(user, email);
@@ -54,54 +58,83 @@ function ManageLogInfo() {
 
   return (
     <div>
-      <h1>manage your account info here</h1>
+      <h2 className="text-center">Manage your user info</h2>
       <Reauthenticate />
       <Form className="edit-profile-form" onSubmit={handleSubmit}>
         <Form.Group className="mb-3">
           <Form.Label>
-            Enter a new email <FiEdit />
+            Click to change your email{" "}
+            <FiEdit
+              className="test"
+              style={{ cursor: "pointer" }}
+              onClick={() => setShowEmailInput(!showEmailInput)}
+            />
           </Form.Label>
-          <Form.Control
-            type="email"
-            placeholder="Enter a new email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
+          {showEmailInput && (
+            <Form.Control
+              type="email"
+              placeholder="Enter a new email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          )}
         </Form.Group>
         <Form.Group className="mb-3">
           <Form.Label>
-            Enter a new Password <FiEdit />
+            Click to change your password{" "}
+            <FiEdit
+              className="test"
+              style={{ cursor: "pointer" }}
+              onClick={() => setShowPasswordInput(!showPasswordInput)}
+            />
           </Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Enter a new password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
+          {showPasswordInput && (
+            <Form.Control
+              type="password"
+              placeholder="Enter a new password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          )}
         </Form.Group>
         <Form.Group className="mb-3">
           <Form.Label>
-            Enter a new username <FiEdit />
+            Click to change yourusername{" "}
+            <FiEdit
+              className="test"
+              style={{ cursor: "pointer" }}
+              onClick={() => setShowDisplayNameInput(!showDisplayNameInput)}
+            />
           </Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter a new username"
-            value={displayName}
-            onChange={(e) => setDisplayName(e.target.value)}
-          />
+          {showDisplayNameInput && (
+            <Form.Control
+              type="text"
+              placeholder="Enter a new username"
+              value={displayName}
+              onChange={(e) => setDisplayName(e.target.value)}
+            />
+          )}
         </Form.Group>
         <Form.Group className="mb-3">
           <Form.Label>
-            Photo <FiEdit />
+            Click to change photo-url{" "}
+            <FiEdit
+              className="test"
+              style={{ cursor: "pointer" }}
+              onClick={() => setShowPhotoURLInput(!showPhotoURLInput)}
+            />
           </Form.Label>
-          <Form.Control
-            type="url"
-            placeholder="Enter a photoURL"
-            value={photoURL}
-            onChange={(e) => setPhotoURL(e.target.value)}
-          />
+          {showPhotoURLInput && (
+            <Form.Control
+              type="url"
+              placeholder="Enter a photoURL"
+              value={photoURL}
+              onChange={(e) => setPhotoURL(e.target.value)}
+            />
+          )}
         </Form.Group>
-        <Button variant="primary" type="submit">
+
+        <Button variant="secondary" type="submit">
           Submit
         </Button>
       </Form>

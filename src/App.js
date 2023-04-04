@@ -11,14 +11,16 @@ import { AuthContextProvider } from './contexts/AuthContext'
 import ProtectdedRoute from './components/ProtectedRoute'
 import Registration from './pages/Registration'
 import MemoryGame from './pages/profile/MemoryGame'
+import Footer from './components/Footer'
 
 
 
 function App() {
   return (
-    <>
+    <div className="app-container">
      <AuthContextProvider>
-      <NavBootstrap/>
+        <NavBootstrap />
+        <div className='content'>
       <Routes>
         <Route path='/' element={ <Home/> } />
         <Route path='*' element={ <ErrorPage/> } />
@@ -29,9 +31,11 @@ function App() {
           <Route path='/profile/manageLogInfo' element={<ManageLogInfo />} />
           <Route path='/profile/memoryGame' element={ <MemoryGame /> } />
         </Route>
-      </Routes>
+        </Routes>
+        </div>
+        <Footer/>
       </AuthContextProvider>
-    </>
+    </div>
   );
 }
 

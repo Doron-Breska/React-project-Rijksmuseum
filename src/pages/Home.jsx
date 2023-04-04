@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 // import Cards from "../components/Cards";
 import Filters from "../components/Filters";
 import CardsModal from "../components/CardsModal";
-import Footer from "../components/Footer";
+import PaginationCom from "../components/PaginationCom";
 
 function Home() {
   const [paintings, setPaintings] = useState([]);
@@ -17,11 +17,11 @@ function Home() {
     const fetchPaintings = async () => {
       try {
         const response = await fetch(
-          `https://www.rijksmuseum.nl/api/en/collection?key=cQfuqm3K&toppieces=True&ps=50&imgonly=true&involvedMaker=${selectArtist}&p=${page}`
+          `https://www.rijksmuseum.nl/api/en/collection?key=cQfuqm3K&toppieces=True&ps=30&imgonly=true&involvedMaker=${selectArtist}&p=${page}`
         );
         const result = await response.json();
         setPaintings(result.artObjects);
-        setTotalPages(result.count / 50);
+        setTotalPages(result.count / 30);
         if (artistsSet.size === 0) {
           const newArtistsSet = new Set();
           for (let paint of result.artObjects) {
@@ -54,7 +54,7 @@ function Home() {
       <div className="paintings-container">
         <CardsModal paintings={paintings} />
       </div>
-      <Footer
+      <PaginationCom
         page={page}
         totalPages={totalPages}
         handlePageChange={handlePageChange}
