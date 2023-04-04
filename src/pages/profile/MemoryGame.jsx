@@ -3,11 +3,13 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { useContext } from "react";
 import { db } from "../../components/FbConfig";
 import { query, where, collection, onSnapshot } from "firebase/firestore";
+import MemoryCards from "../../components/MemoryCards";
 
 function MemoryGame() {
   const { isUserLogged } = useContext(AuthContext);
   const [likes, setLikes] = useState([]);
   const [arrayOfImageUrls, setArrayOfImageUrls] = useState([]);
+  const [cards, setCards] = useState([]);
 
   function fetchLikes() {
     const userId = isUserLogged.uid;
@@ -45,25 +47,30 @@ function MemoryGame() {
       })
     );
   }, [likes]);
-  console.log("test array of urls", arrayOfImageUrls);
 
+  useEffect(() => {
+    const duplicatedUrls = arrayOfImageUrls.concat(arrayOfImageUrls);
+    setCards(shuffleArray(duplicatedUrls));
+  }, [arrayOfImageUrls]);
+
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
   return (
-    <div className="manage-likes">
-      {likes.length === 0 && <h3>No liked paintings yet</h3>}
-      {likes.map((like) => (
-        <div
-          key={like.id}
-          className="liked-painting"
-          style={{ width: "200px" }}
-        >
-          <img
-            style={{ display: "block", width: "200px" }}
-            src={like.paintingUrl}
-            alt={like.paintingTitle}
-          />
-        </div>
-      ))}
-    </div>
+    <>
+      <h3 style={{ textAlign: "center" }}>
+        Memory game with your favorite paintings
+      </h3>
+      <div className="memory-game">
+        {cards.map((cardUrl, index) => (
+          <MemoryCards key={index} imageUrl={cardUrl} />
+        ))}
+      </div>
+    </>
   );
 }
 export default MemoryGame;
