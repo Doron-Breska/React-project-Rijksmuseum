@@ -28,7 +28,9 @@ function Reauthenticate() {
 
   return (
     <div className="text-center reauthenticate-form">
-      <h4>*To change your password you'll need to reauthenticate first</h4>
+      <h4>
+        *To change your password/email you'll need to reauthenticate first
+      </h4>
       <Button variant="secondary" onClick={() => setShowForm(!showForm)}>
         Reauthenticate
       </Button>

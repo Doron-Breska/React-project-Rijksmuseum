@@ -87,7 +87,7 @@ function NavBootstrap() {
             <Button
               onClick={logOut}
               style={{ width: "10rem" }}
-              variant="outline-success"
+              variant="secondary"
             >
               Log-Out
             </Button>
@@ -112,7 +112,7 @@ function NavBootstrap() {
 
               <Button
                 style={{ width: "10rem" }}
-                variant="outline-success"
+                variant="secondary"
                 type="submit"
               >
                 log-In

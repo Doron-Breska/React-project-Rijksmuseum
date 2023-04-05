@@ -12,7 +12,7 @@ import ProtectdedRoute from './components/ProtectedRoute'
 import Registration from './pages/Registration'
 import MemoryGame from './pages/profile/MemoryGame'
 import Footer from './components/Footer'
-
+import './index.css'
 
 
 function App() {

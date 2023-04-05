@@ -11,23 +11,25 @@ function Filters({ arrayArtists, onSelect }) {
 
   return (
     <>
-      <div className="headerFilters">
-        By defult you see our top 100 pieces,
-        <br /> you can filter the paint acourdibg to your favorite painter
-      </div>
-      <div className="selectArtist">
-        <Form.Select
-          onChange={handleChange}
-          aria-label="select an painter"
-          id="selectElement"
-        >
-          <option value="">...</option>
-          {arrayArtists.map((paint, index) => (
-            <option key={index} value={paint}>
-              {paint}
-            </option>
-          ))}
-        </Form.Select>
+      <div className="filter-container">
+        <h3 className="filter-header glow">
+          By defult you see our top pieces.
+          <br /> You can use the select to pcik a specific painter.
+        </h3>
+        <div className="select-painter">
+          <Form.Select
+            onChange={handleChange}
+            aria-label="select an painter"
+            id="selectElement"
+          >
+            <option value="">...</option>
+            {arrayArtists.map((paint, index) => (
+              <option key={index} value={paint}>
+                {paint}
+              </option>
+            ))}
+          </Form.Select>
+        </div>
       </div>
     </>
   );

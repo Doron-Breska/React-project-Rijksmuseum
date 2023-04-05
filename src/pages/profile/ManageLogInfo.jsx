@@ -19,7 +19,7 @@ function ManageLogInfo() {
   const [showPhotoURLInput, setShowPhotoURLInput] = useState(false);
 
   const handleSubmit = async (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     const user = isUserLogged;
     try {
       if (email !== "") {
@@ -48,7 +48,7 @@ function ManageLogInfo() {
         console.log("photoURL updated successfully");
         setPhotoURL("");
       }
-
+      window.location.reload();
       // Show success message to user here
     } catch (error) {
       console.log(error.message);
