@@ -20,7 +20,8 @@ function App() {
     <div className="app-container">
      <AuthContextProvider>
         <NavBootstrap />
-        <div className='content'>
+        <div className='content-wrapper'>
+          <div className='content'>
       <Routes>
         <Route path='/' element={ <Home/> } />
         <Route path='*' element={ <ErrorPage/> } />
@@ -33,7 +34,8 @@ function App() {
         </Route>
         </Routes>
         </div>
-        <Footer/>
+        <Footer />
+        </div>
       </AuthContextProvider>
     </div>
   );

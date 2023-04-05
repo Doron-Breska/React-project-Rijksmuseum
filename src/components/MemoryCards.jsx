@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function MemoryCard({ imageUrl }) {
+function MemoryCards({ imageUrl }) {
   const [isFlipped, setIsFlipped] = useState(false);
   const cardBackUrl =
     "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/800px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg";
@@ -10,10 +10,7 @@ function MemoryCard({ imageUrl }) {
   }
 
   return (
-    <div
-      onClick={handleClick}
-      style={{ width: "250px", height: "370px", border: "1px solid black" }}
-    >
+    <div onClick={handleClick} style={{ width: "200px", height: "300px" }}>
       {isFlipped ? (
         <img src={imageUrl} alt="memory card" style={{ width: "100%" }} />
       ) : (
@@ -23,4 +20,4 @@ function MemoryCard({ imageUrl }) {
   );
 }
 
-export default MemoryCard;
+export default MemoryCards;

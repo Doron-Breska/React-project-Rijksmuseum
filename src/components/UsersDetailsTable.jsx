@@ -7,24 +7,10 @@ import Table from "react-bootstrap/Table";
 function UsersDetailsTable() {
   const { isUserLogged } = useContext(AuthContext);
   console.log("manage log info", isUserLogged);
-  /// showing user's info inside the table
-  // const auth = getAuth();
-  // const user = auth.currentUser;
-
-  // if (user !== false) {
-  //   user.providerData.forEach((profile) => {
-  //     console.log("Sign-in provider: " + profile.providerId);
-  //     console.log("  Provider-specific UID: " + profile.uid);
-  //     console.log("  Name: " + profile.displayName);
-  //     console.log("  Email: " + profile.email);
-  //     console.log("  Photo URL: " + profile.photoURL);
-  //   });
-  // }
-  ///////
   return (
     <div className="user-info-table">
       <Table striped bordered hover>
-        <thead>
+        <thead className="rounded">
           <tr>
             <th>UserName</th>
             <th>Email</th>

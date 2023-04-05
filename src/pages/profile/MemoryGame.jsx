@@ -8,8 +8,18 @@ import MemoryCards from "../../components/MemoryCards";
 function MemoryGame() {
   const { isUserLogged } = useContext(AuthContext);
   const [likes, setLikes] = useState([]);
-  const [arrayOfImageUrls, setArrayOfImageUrls] = useState([]);
   const [cards, setCards] = useState([]);
+
+  function selectRandomElements(arr, desireNumberOfCards) {
+    const randomElements = [];
+    const exampleArr = [...arr];
+    for (let i = 0; i < desireNumberOfCards; i++) {
+      const randomIndex = Math.floor(Math.random() * exampleArr.length);
+      randomElements.push(exampleArr[randomIndex]);
+      exampleArr.splice(randomIndex, 1);
+    }
+    return randomElements;
+  }
 
   function fetchLikes() {
     const userId = isUserLogged.uid;
@@ -41,17 +51,19 @@ function MemoryGame() {
   }, []);
 
   useEffect(() => {
-    setArrayOfImageUrls(
-      likes.map((like) => {
-        return like.paintingUrl;
-      })
-    );
-  }, [likes]);
+    let selectedLikes;
+    if (likes.length > 5) {
+      selectedLikes = selectRandomElements(likes, 5);
+    } else {
+      selectedLikes = likes;
+    }
+    const selectedImageUrls = selectedLikes.map((like) => like.paintingUrl);
 
-  useEffect(() => {
-    const duplicatedUrls = arrayOfImageUrls.concat(arrayOfImageUrls);
+    // Create duplicates for the selected paintings
+    const duplicatedUrls = selectedImageUrls.concat(selectedImageUrls);
+
     setCards(shuffleArray(duplicatedUrls));
-  }, [arrayOfImageUrls]);
+  }, [likes]);
 
   function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -60,6 +72,7 @@ function MemoryGame() {
     }
     return array;
   }
+
   return (
     <>
       <h3 style={{ textAlign: "center" }}>
