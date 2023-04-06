@@ -20,8 +20,10 @@ function Profile() {
         <Outlet />
       ) : (
         <>
-          <UsersDetailsTable />
-          <ManageLogInfo />
+          <div className="profile-frame">
+            <UsersDetailsTable />
+            <ManageLogInfo />
+          </div>
         </>
       )}
     </>

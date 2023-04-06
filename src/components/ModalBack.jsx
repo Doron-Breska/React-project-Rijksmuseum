@@ -7,6 +7,8 @@ import { AuthContext } from "../contexts/AuthContext";
 import { useContext } from "react";
 import { db } from "../components/FbConfig";
 import { query, where, onSnapshot } from "firebase/firestore";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSadCry } from "@fortawesome/free-solid-svg-icons";
 
 function ModalBack({ selectedPainting, show, handleClose, updateNumComments }) {
   const { isUserLogged } = useContext(AuthContext);
@@ -44,7 +46,7 @@ function ModalBack({ selectedPainting, show, handleClose, updateNumComments }) {
     try {
       const docRef = await addDoc(collection(db, "comments"), commentData);
       console.log("Comment added with ID: ", docRef.id);
-      alert("comment added");
+      // alert("comment added");
       setInputValue("");
       updateNumComments(paintingId);
     } catch (e) {
@@ -91,12 +93,17 @@ function ModalBack({ selectedPainting, show, handleClose, updateNumComments }) {
     >
       <Modal.Header closeButton>
         <Modal.Title>
-          Comments related to {selectedPainting && selectedPainting.title}
+          Let us know what you think about
+          <br />"{selectedPainting && selectedPainting.title}"
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <div id="msgs">
-          {comments.length === 0 && <h3>no comments yet</h3>}
+          {comments.length === 0 && (
+            <h3>
+              No comments yet <FontAwesomeIcon icon={faSadCry} />
+            </h3>
+          )}
           {comments.map((comment) => (
             <div key={comment.id} className="comment">
               <div className="userName">{comment.userName}:</div>

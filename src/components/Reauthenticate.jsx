@@ -19,10 +19,12 @@ function Reauthenticate() {
       const credential = EmailAuthProvider.credential(email, password);
       await reauthenticateWithCredential(user, credential);
       console.log("Reauthentication successful");
+      alert("Reauthentication successful");
       setEmail("");
       setPassword("");
     } catch (error) {
       console.log(error.message);
+      alert(error.message);
     }
   };
 

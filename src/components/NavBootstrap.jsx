@@ -29,6 +29,7 @@ function NavBootstrap() {
       const errorCode = error.code;
       const errorMessage = error.message;
       console.log(errorCode, errorMessage);
+      alert(errorMessage);
     }
   };
 
@@ -71,9 +72,6 @@ function NavBootstrap() {
                   <>
                     <Nav.Link as={Link} to="profile/manageHistory">
                       History
-                    </Nav.Link>
-                    <Nav.Link as={Link} to="profile/manageLogInfo">
-                      Log-In Info
                     </Nav.Link>
                     <Nav.Link as={Link} to="profile/memoryGame">
                       Memory Game

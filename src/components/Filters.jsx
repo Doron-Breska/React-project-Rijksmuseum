@@ -13,8 +13,8 @@ function Filters({ arrayArtists, onSelect }) {
     <>
       <div className="filter-container">
         <h3 className="filter-header glow">
-          By defult you see our top pieces.
-          <br /> You can use the select to pcik a specific painter.
+          By defult you see our top pieces gallery.
+          <br /> You can use the select to pick a specific painter.
         </h3>
         <div className="select-painter">
           <Form.Select

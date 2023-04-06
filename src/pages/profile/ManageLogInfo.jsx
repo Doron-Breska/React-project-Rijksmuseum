@@ -48,24 +48,25 @@ function ManageLogInfo() {
         console.log("photoURL updated successfully");
         setPhotoURL("");
       }
+      alert("Profile updated successfully");
       window.location.reload();
       // Show success message to user here
     } catch (error) {
       console.log(error.message);
-      // Show error message to user here
+      alert(error.message);
     }
   };
 
   return (
     <div>
-      <h2 className="text-center">Manage your user info</h2>
+      <h2 className="text-center">Manage your profile</h2>
       <Reauthenticate />
       <Form className="edit-profile-form" onSubmit={handleSubmit}>
         <Form.Group className="mb-3">
           <Form.Label>
             Click to change your email{" "}
             <FiEdit
-              className="test"
+              className="pencil-edit"
               style={{ cursor: "pointer" }}
               onClick={() => setShowEmailInput(!showEmailInput)}
             />
@@ -83,7 +84,7 @@ function ManageLogInfo() {
           <Form.Label>
             Click to change your password{" "}
             <FiEdit
-              className="test"
+              className="pencil-edit"
               style={{ cursor: "pointer" }}
               onClick={() => setShowPasswordInput(!showPasswordInput)}
             />
@@ -101,7 +102,7 @@ function ManageLogInfo() {
           <Form.Label>
             Click to change yourusername{" "}
             <FiEdit
-              className="test"
+              className="pencil-edit"
               style={{ cursor: "pointer" }}
               onClick={() => setShowDisplayNameInput(!showDisplayNameInput)}
             />
@@ -119,7 +120,7 @@ function ManageLogInfo() {
           <Form.Label>
             Click to change photo-url{" "}
             <FiEdit
-              className="test"
+              className="pencil-edit"
               style={{ cursor: "pointer" }}
               onClick={() => setShowPhotoURLInput(!showPhotoURLInput)}
             />
