@@ -214,14 +214,24 @@ justify-content:space-evenly;}
   margin: 2rem auto;
 }
 .test-user-name{
+width: 100px;
+height: 100px;
 align-self: flex-end;
 border: 2px solid black;
 border-radius: 50%;
-padding: 1.7rem 1rem;
 text-align: center;
-background-color :rgba(254, 142, 50, 0.85);
+background-color :#f4a261;
 transition: scale 1s ease-in-out;
 }
+.user-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  height: 100%;
+}
+
 .test-user-name:hover{
   transform: scale(1.1);
 }
@@ -237,6 +247,19 @@ transition: scale 1s ease-in-out;
   overflow: hidden;
   position: relative;
   transition: scale .1s ease-in-out;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  background-color:#f94144;
+}
+
+.pic-text{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  height: 100%;
 }
 .test-user-pic:hover{
   transform: scale(1.1);
@@ -253,10 +276,17 @@ transition: scale 1s ease-in-out;
   margin-bottom: 2rem;
   border: 2px solid black;
   border-radius: 50%;
-  padding: 2.4rem 1rem;
+  width: 150px;
+  height: 150px;
   text-align: center;
-  background-color :rgba(254, 142, 50, 0.85);
+  background-color :rgba(240, 77, 31, 0.919);
   transition: scale .1s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.email-text {
+  text-align: center;
 }
 .test-user-email:hover{
     transform: scale(1.1);

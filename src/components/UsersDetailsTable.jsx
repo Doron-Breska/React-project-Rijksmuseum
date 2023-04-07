@@ -1,6 +1,7 @@
 import React from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import { useContext } from "react";
+import { FiCameraOff } from "react-icons/fi";
 
 function UsersDetailsTable() {
   const { isUserLogged } = useContext(AuthContext);
@@ -8,14 +9,18 @@ function UsersDetailsTable() {
   return (
     <div className="test-profile">
       <div className="test-user-name">
-        Username:
-        <br />
-        {isUserLogged && isUserLogged.displayName}
+        <p className="user-text">
+          Username:
+          <br />
+          {isUserLogged && isUserLogged.displayName}
+        </p>
       </div>
       <div className="test-user-email">
-        Email:
-        <br />
-        {isUserLogged && isUserLogged.email}
+        <p className="email-text">
+          Email:
+          <br />
+          {isUserLogged && isUserLogged.email}
+        </p>
       </div>
       <div className="test-user-pic" style={{ textAlign: "right" }}>
         {isUserLogged.photoURL ? (
@@ -26,7 +31,11 @@ function UsersDetailsTable() {
             alt="profile pic"
           ></img>
         ) : (
-          "you didn't set a pic yet"
+          <p className="pic-text">
+            You didn't set a pic yet
+            <br />
+            <FiCameraOff />
+          </p>
         )}
       </div>
     </div>
