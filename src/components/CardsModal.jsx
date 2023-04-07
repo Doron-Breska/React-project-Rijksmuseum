@@ -21,8 +21,8 @@ import {
 import { db } from "../components/FbConfig";
 
 function CardsModal({ paintings }) {
-  const [numLikes, setNumLikes] = useState(0);
-  const [numComments, setNumComments] = useState(0);
+  const [numLikes, setNumLikes] = useState({});
+  const [numComments, setNumComments] = useState({});
   const [showComments, setShowComments] = useState(false);
   const [selectedPainting, setSelectedPainting] = useState({});
   const { isUserLogged } = useContext(AuthContext);
@@ -52,7 +52,7 @@ function CardsModal({ paintings }) {
     const snapshot = await getDocs(likesQuery);
 
     if (snapshot.empty) {
-      // User didn't like the painting yet, so add a like
+      // If not-
       const likeData = {
         paintingId: paintingId,
         userId: userId,
@@ -67,7 +67,7 @@ function CardsModal({ paintings }) {
         console.error("Error adding like: ", e);
       }
     } else {
-      // User already liked the painting, so remove the like
+      // If yes-
       try {
         const likeDoc = snapshot.docs[0];
         await deleteDoc(likeDoc.ref);

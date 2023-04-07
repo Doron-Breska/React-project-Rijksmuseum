@@ -59,17 +59,22 @@ function ManageComments() {
     <div className="manage-comments">
       {comments.length === 0 && <h3>no comments yet</h3>}
       {comments.map((comment) => (
-        <div key={comment.id} className="comment" style={{ width: "200px" }}>
+        <div key={comment.id} className="comment" style={{ width: "170px" }}>
           <img
-            style={{ display: "block", width: "200px" }}
+            style={{ display: "block", width: "170px" }}
             src={comment.paintingUrl}
             alt={comment.paintingTitle}
           />
           <div className="userName">
             {comment.timestamp && comment.timestamp.toDate().toLocaleString()}:
           </div>
-          <div className="commentText">{comment.commentText}</div>
-          <Button onClick={() => deleteComment(comment.id)}>REMOVE</Button>
+          <div className="commentText text-center">{comment.commentText}</div>
+          <Button
+            className="text-center"
+            onClick={() => deleteComment(comment.id)}
+          >
+            REMOVE
+          </Button>
         </div>
       ))}
     </div>
