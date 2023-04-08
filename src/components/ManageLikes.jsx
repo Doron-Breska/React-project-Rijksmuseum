@@ -55,26 +55,35 @@ function ManageLikes() {
   }
 
   return (
-    <div className="manage-likes">
-      {likes.length === 0 && <h3>No liked paintings yet</h3>}
-      {likes.map((like) => (
-        <div
-          key={like.id}
-          className="liked-painting"
-          style={{ width: "200px" }}
-        >
-          <img
-            style={{ display: "block", width: "200px" }}
-            src={like.paintingUrl}
-            alt={like.paintingTitle}
-          />
-          <div className="paintingTitle">{like.paintingTitle}</div>
-          <div className="likeTimestamp">
-            {like.timestamp && like.timestamp.toDate().toLocaleString()}
+    <div className="manage-likes-container">
+      <div className="manage-likes">
+        {likes.length === 0 && <h3>No liked paintings yet</h3>}
+        {likes.map((like) => (
+          <div
+            key={like.id}
+            className="liked-painting"
+            style={{ width: "170px" }}
+          >
+            <img
+              style={{ display: "block", width: "170px", borderRadius: "5px" }}
+              src={like.paintingUrl}
+              alt={like.paintingTitle}
+            />
+            <div className="paintingTitle">{like.paintingTitle}</div>
+            <div className="likeTimestamp">
+              {like.timestamp && like.timestamp.toDate().toLocaleString()}
+            </div>
+            <div className="text-center">
+              <Button
+                variant="secondary"
+                onClick={() => unlikePainting(like.id)}
+              >
+                UNLIKE
+              </Button>
+            </div>
           </div>
-          <Button onClick={() => unlikePainting(like.id)}>UNLIKE</Button>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }

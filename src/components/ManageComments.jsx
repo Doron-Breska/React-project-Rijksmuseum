@@ -11,6 +11,7 @@ import {
   deleteDoc,
 } from "firebase/firestore";
 import Button from "react-bootstrap/Button";
+import { RiDeleteBin6Line } from "react-icons/ri";
 
 function ManageComments() {
   const { isUserLogged } = useContext(AuthContext);
@@ -56,27 +57,34 @@ function ManageComments() {
   }
 
   return (
-    <div className="manage-comments">
-      {comments.length === 0 && <h3>no comments yet</h3>}
-      {comments.map((comment) => (
-        <div key={comment.id} className="comment" style={{ width: "170px" }}>
-          <img
-            style={{ display: "block", width: "170px" }}
-            src={comment.paintingUrl}
-            alt={comment.paintingTitle}
-          />
-          <div className="userName">
-            {comment.timestamp && comment.timestamp.toDate().toLocaleString()}:
+    <div className="manage-comments-container">
+      <div className="manage-comments">
+        {comments.length === 0 && <h3>no comments yet</h3>}
+        {comments.map((comment) => (
+          <div key={comment.id} className="comment" style={{ width: "170px" }}>
+            <img
+              style={{ display: "block", width: "170px", borderRadius: "5px" }}
+              src={comment.paintingUrl}
+              alt={comment.paintingTitle}
+            />
+            <div className="userName text-center">
+              {comment.timestamp && comment.timestamp.toDate().toLocaleString()}
+              :
+            </div>
+            <div className="commentText text-center">{comment.commentText}</div>
+            <div className="text-center">
+              <Button
+                style={{ fontSize: "1.2rem", padding: "0.1rem 0.3rem" }}
+                variant="secondary"
+                className="text-center"
+                onClick={() => deleteComment(comment.id)}
+              >
+                <RiDeleteBin6Line />
+              </Button>
+            </div>
           </div>
-          <div className="commentText text-center">{comment.commentText}</div>
-          <Button
-            className="text-center"
-            onClick={() => deleteComment(comment.id)}
-          >
-            REMOVE
-          </Button>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }
