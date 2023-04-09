@@ -61,9 +61,9 @@ function ManageComments() {
       <div className="manage-comments">
         {comments.length === 0 && <h3>no comments yet</h3>}
         {comments.map((comment) => (
-          <div key={comment.id} className="comment" style={{ width: "170px" }}>
+          <div key={comment.id} className="comment" style={{ width: "194px" }}>
             <img
-              style={{ display: "block", width: "170px", borderRadius: "5px" }}
+              style={{ display: "block", width: "190px", borderRadius: "5px" }}
               src={comment.paintingUrl}
               alt={comment.paintingTitle}
             />
@@ -76,7 +76,7 @@ function ManageComments() {
               <Button
                 style={{ fontSize: "1.2rem", padding: "0.1rem 0.3rem" }}
                 variant="secondary"
-                className="text-center"
+                className="text-center delete-comment-btn"
                 onClick={() => deleteComment(comment.id)}
               >
                 <RiDeleteBin6Line />

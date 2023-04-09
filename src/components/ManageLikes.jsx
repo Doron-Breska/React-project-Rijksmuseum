@@ -62,19 +62,21 @@ function ManageLikes() {
           <div
             key={like.id}
             className="liked-painting"
-            style={{ width: "170px" }}
+            style={{ width: "194px" }}
           >
             <img
-              style={{ display: "block", width: "170px", borderRadius: "5px" }}
+              style={{ display: "block", width: "190px", borderRadius: "5px" }}
               src={like.paintingUrl}
               alt={like.paintingTitle}
+              className="painting-info"
             />
-            <div className="paintingTitle">{like.paintingTitle}</div>
-            <div className="likeTimestamp">
+            <div className="paintingTitle">"{like.paintingTitle}"</div>
+            <div className="likeTimestamp painting-info">
               {like.timestamp && like.timestamp.toDate().toLocaleString()}
             </div>
             <div className="text-center">
               <Button
+                className="unlike-btn"
                 variant="secondary"
                 onClick={() => unlikePainting(like.id)}
               >
