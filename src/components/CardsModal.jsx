@@ -150,7 +150,11 @@ function CardsModal({ paintings }) {
     <>
       {paintings.map((paint) => {
         return (
-          <Card key={paint.id} className="bg-dark text-white my-3 paint">
+          <Card
+            key={paint.id}
+            className="bg-dark text-white my-3 paint"
+            style={{ borderRadius: "9px" }}
+          >
             <Card.Img src={paint.webImage.url} alt="Card image" />
             <Card.ImgOverlay>
               <Button

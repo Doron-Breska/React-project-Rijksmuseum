@@ -12,10 +12,7 @@ function Filters({ arrayArtists, onSelect }) {
   return (
     <>
       <div className="filter-container">
-        <h3 className="filter-header glow">
-          By defult you see our top pieces gallery.
-          <br /> You can use the select to pick a specific painter.
-        </h3>
+        <h3 className="filter-header ">Rijksmuseum's top pieces gallery</h3>
         <div className="select-painter">
           <Form.Select
             onChange={handleChange}
