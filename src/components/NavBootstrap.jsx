@@ -90,7 +90,7 @@ function NavBootstrap() {
               Log-Out
             </Button>
           ) : (
-            <Form className="d-flex" onSubmit={handleSubmit}>
+            <Form className="d-flex gap-2" onSubmit={handleSubmit}>
               <Form.Group controlId="email">
                 <Form.Control
                   type="email"

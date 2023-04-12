@@ -59,7 +59,7 @@ row-gap: 50px;
 .paint:hover{
 border-color:rgb(254, 141, 50) !important;
 border-color: linear-gradient(90deg, rgba(254, 141, 50, 1) 0%, rgba(255, 0, 0, 1) 51%) !important;
-transform: scale(1.1);
+transform: scale(1.05);
 }
 
 
@@ -77,6 +77,16 @@ transform: scale(1.1);
 
 #share-btn{
   z-index: 1;
+}
+
+
+
+.manage-history-header{
+font-family: 'Mynerve', sans-serif;
+font-weight:900;
+font-size: 3rem;
+margin: 2rem auto ;
+max-width: 320px;
 }
 .manage-comments-container{
     max-width: 800px;
@@ -104,6 +114,7 @@ transform: scale(1.1);
     align-self: start;
     text-align:center;
     z-index: 1;
+    transition: scale .1s ease-in-out;
 }
 
 .userName{
@@ -120,6 +131,7 @@ margin: 0.5rem auto;
 .comment:hover{
     border: 2px solid rgb(85, 83, 83);
     border: linear-gradient(100deg, rgba(211, 211, 211, 1), rgb(111, 108, 108)) 1;
+    transform: scale(1.05);
 }
 
 .manage-likes-container{
@@ -149,6 +161,7 @@ margin: 1rem auto;
   align-self: start;
   text-align:center ;
   z-index: 1;
+  transition: scale .1s ease-in-out;
 }
 .paintingTitle{
   margin: 0.5rem 0.3rem;
@@ -159,6 +172,7 @@ margin: 1rem auto;
 .liked-painting:hover {
   border: 2px solid rgb(85, 83, 83);
   border: linear-gradient(100deg, rgba(211, 211, 211, 1), rgb(111, 108, 108)) 1;
+  transform: scale(1.05);
 }
 
 

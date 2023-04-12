@@ -7,13 +7,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 function ManageHistory() {
   return (
     <div>
-      <h1 style={{ textAlign: "center" }}>
-        Indecisive ? <br /> No problem <FontAwesomeIcon icon={faSmileWink} />
-      </h1>
+      <div className="manage-history-header">
+        <h1 style={{ textAlign: "left" }}>Indecisive ?</h1>
+        <h1 style={{ textAlign: "right" }}>No problem ^^</h1>
+      </div>
       <ManageComments />
       <ManageLikes />
     </div>
   );
 }
-
+//<FontAwesomeIcon icon={faSmileWink} />
 export default ManageHistory;
