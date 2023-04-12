@@ -91,6 +91,7 @@ font-size: 3rem;
 margin: 2rem auto ;
 max-width: 320px;
 }
+
 .manage-comments-container{
     max-width: 800px;
     margin: 1rem auto;
@@ -118,6 +119,10 @@ max-width: 320px;
     text-align:center;
     z-index: 1;
     transition: scale .1s ease-in-out;
+    width: 194px;
+}
+.comment-img{
+  width:190px ;
 }
 
 .userName{
@@ -165,6 +170,11 @@ margin: 1rem auto;
   text-align:center ;
   z-index: 1;
   transition: scale .1s ease-in-out;
+  width: 194px;
+}
+
+.liked-img{
+  width: 190px;
 }
 .paintingTitle{
   margin: 0.5rem 0.3rem;
@@ -238,6 +248,7 @@ justify-content:space-evenly;}
   column-gap: 5px;
   flex-direction: column;
 }
+
 .filter-header {
   position: relative;
   color: #fa4700;
@@ -389,4 +400,36 @@ footer{
   padding-top:0.4rem ;
   padding-bottom: 0.4rem;
   background-color: #dfdcdc;
+}
+
+
+
+@media (max-width:700px) {
+.manage-comments {
+  grid-template-columns: 1fr 1fr ;
+  justify-content: center;
+}
+.manage-likes {
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+}
+}
+
+@media (max-width:540px) {
+ .comment, .liked-painting{
+   width: 174px;
+ }
+ .comment-img, .liked-img{
+   width:170px ;
+ }
+}
+
+@media (max-width:450px) {
+  .comment, .liked-painting {
+    width: 134px;
+  }
+
+  .comment-img, .liked-img {
+    width: 130px;
+  }
 }

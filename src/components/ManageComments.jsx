@@ -61,9 +61,10 @@ function ManageComments() {
       <div className="manage-comments">
         {comments.length === 0 && <h3>no comments yet</h3>}
         {comments.map((comment) => (
-          <div key={comment.id} className="comment" style={{ width: "194px" }}>
+          <div key={comment.id} className="comment">
             <img
-              style={{ display: "block", width: "190px", borderRadius: "5px" }}
+              className="comment-img"
+              style={{ display: "block", borderRadius: "5px" }}
               src={comment.paintingUrl}
               alt={comment.paintingTitle}
             />

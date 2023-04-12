@@ -12,7 +12,7 @@ function Filters({ arrayArtists, onSelect }) {
   return (
     <>
       <div className="filter-container">
-        <h3 className="filter-header ">Rijksmuseum's top pieces gallery</h3>
+        <h3 className="filter-header">Rijksmuseum's top pieces gallery</h3>
         <div className="select-painter">
           <Form.Select
             onChange={handleChange}
