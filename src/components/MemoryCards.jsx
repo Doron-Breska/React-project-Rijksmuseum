@@ -10,11 +10,21 @@ function MemoryCards({ imageUrl }) {
   }
 
   return (
-    <div onClick={handleClick} style={{ width: "200px", height: "300px" }}>
+    <div onClick={handleClick} className="memory-game-card">
       {isFlipped ? (
-        <img src={imageUrl} alt="memory card" style={{ width: "100%" }} />
+        <img
+          className="memory-crad-img"
+          src={imageUrl}
+          alt="memory card"
+          style={{ width: "100%" }}
+        />
       ) : (
-        <img src={cardBackUrl} alt="card back" style={{ width: "100%" }} />
+        <img
+          className="memory-crad-img"
+          src={cardBackUrl}
+          alt="card back"
+          style={{ width: "100%" }}
+        />
       )}
     </div>
   );
