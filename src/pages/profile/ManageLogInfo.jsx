@@ -59,7 +59,9 @@ function ManageLogInfo() {
 
   return (
     <div>
-      <h2 className="text-center">Manage your profile</h2>
+      <h3 className="text-center manage-profile-headrer">
+        Manage your profile
+      </h3>
       <Reauthenticate />
       <Form className="edit-profile-form" onSubmit={handleSubmit}>
         <Form.Group className="mb-3">
@@ -74,6 +76,7 @@ function ManageLogInfo() {
           {showEmailInput && (
             <Form.Control
               type="email"
+              id="manage-profile-email-input"
               placeholder="Enter a new email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -92,6 +95,7 @@ function ManageLogInfo() {
           {showPasswordInput && (
             <Form.Control
               type="password"
+              id="manage-profile-password-input"
               placeholder="Enter a new password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -110,6 +114,7 @@ function ManageLogInfo() {
           {showDisplayNameInput && (
             <Form.Control
               type="text"
+              id="manage-profile-username-input"
               placeholder="Enter a new username"
               value={displayName}
               onChange={(e) => setDisplayName(e.target.value)}
@@ -128,6 +133,7 @@ function ManageLogInfo() {
           {showPhotoURLInput && (
             <Form.Control
               type="url"
+              id="manage-profile-photo-input"
               placeholder="Enter a photoURL"
               value={photoURL}
               onChange={(e) => setPhotoURL(e.target.value)}

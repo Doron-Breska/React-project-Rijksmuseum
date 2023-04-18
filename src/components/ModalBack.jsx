@@ -105,25 +105,32 @@ function ModalBack({ selectedPainting, show, handleClose, updateNumComments }) {
             </h3>
           )}
           {comments.map((comment) => (
-            <div key={comment.id} className="comment">
+            <div key={comment.id} className="comment-modal">
               <div className="userName">{comment.userName}:</div>
               <div className="commentText">{comment.commentText}</div>
             </div>
           ))}
         </div>
         <Form onSubmit={addComment}>
-          <Form.Group className="mb-3">
-            <Form.Control
-              type="text"
-              placeholder="Write something.."
-              value={inputValue}
-              onChange={handleInputChange}
-            />
-          </Form.Group>
+          <div className="comment-inside-moadl">
+            <Form.Group className="mb-3">
+              <Form.Control
+                id="comment-input-modal"
+                type="text"
+                placeholder="Write something.."
+                value={inputValue}
+                onChange={handleInputChange}
+              />
+            </Form.Group>
 
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
+            <Button
+              className="comment-btn-modal"
+              variant="secondary"
+              type="submit"
+            >
+              Submit
+            </Button>
+          </div>
         </Form>
       </Modal.Body>
     </Modal>

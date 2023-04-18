@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { db } from "../../components/FbConfig";
 import { query, where, collection, onSnapshot } from "firebase/firestore";
 import MemoryCards from "../../components/MemoryCards";
+import newAdele from "../../assets/images/newAdele.png";
 
 function MemoryGame() {
   const { isUserLogged } = useContext(AuthContext);
@@ -75,13 +76,20 @@ function MemoryGame() {
 
   return (
     <>
-      <h3 style={{ textAlign: "center" }}>
-        Memory game with your favorite paintings
-      </h3>
-      <div className="memory-game">
-        {cards.map((cardUrl, index) => (
-          <MemoryCards key={index} imageUrl={cardUrl} />
-        ))}
+      <h3 style={{ textAlign: "center" }}>Don't you remember ?</h3>
+      <span>
+        <img
+          // src="https://i.pinimg.com/236x/a6/00/c1/a600c15c5dd74858934840d8d4f96ac8.jpg?nii=t"
+          src={newAdele}
+          alt="sticker of adele"
+        />
+      </span>
+      <div className="memory-game-container">
+        <div className="memory-game">
+          {cards.map((cardUrl, index) => (
+            <MemoryCards key={index} imageUrl={cardUrl} />
+          ))}
+        </div>
       </div>
     </>
   );
