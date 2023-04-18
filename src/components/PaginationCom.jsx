@@ -33,7 +33,7 @@ function PaginationCom({ page, totalPages, handlePageChange }) {
   }
 
   return (
-    <div className="pagination d-flex justify-content-center">
+    <div className="pagination d-flex justify-content-center pagination-div">
       <Pagination>
         <Pagination.Prev
           onClick={() => handlePageChange(Math.max(page - 1, 1))}
