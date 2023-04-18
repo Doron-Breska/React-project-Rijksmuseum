@@ -59,7 +59,7 @@ function ManageLogInfo() {
 
   return (
     <div>
-      <h3 className="text-center manage-profile-headrer">
+      <h3 className="text-center manage-profile-headrer mx-5">
         Manage your profile
       </h3>
       <Reauthenticate />

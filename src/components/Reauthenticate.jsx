@@ -30,7 +30,7 @@ function Reauthenticate() {
 
   return (
     <div className="text-center reauthenticate-form">
-      <h4>
+      <h4 className="mb-4">
         *To change your password/email you'll need to reauthenticate first
       </h4>
       <Button variant="secondary" onClick={() => setShowForm(!showForm)}>
@@ -42,6 +42,7 @@ function Reauthenticate() {
             <Form.Label>Email</Form.Label>
             <Form.Control
               type="email"
+              id="reauthenticate-email-input"
               placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -51,6 +52,7 @@ function Reauthenticate() {
             <Form.Label>Password</Form.Label>
             <Form.Control
               type="password"
+              id="reauthenticate-password-input"
               placeholder="Enter your password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}

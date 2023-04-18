@@ -1,12 +1,12 @@
-// import React, { useContext, useState } from "react";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+// import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { updateProfile } from "firebase/auth";
 import { auth } from "../components/FbConfig";
 // import { AuthContext } from "../contexts/AuthContext.jsx";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { getFirestore, doc, setDoc } from "firebase/firestore";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
 
 function Registration() {
   // const { isUserLogged } = useContext(AuthContext);
@@ -28,10 +28,13 @@ function Registration() {
       const user = userCredential.user;
       console.log(user);
 
-      // Wait for both updateProfile and setDoc to complete
+      // Wait for both updateProfile and addDoc to complete
       await Promise.all([
         updateProfile(user, { displayName }),
-        setDoc(doc(db, "users", user.uid), {}),
+        addDoc(collection(db, "users"), {
+          userId: user.uid,
+          emailAdress: user.email,
+        }),
       ]);
 
       console.log("Profile updated and document created successfully!");
@@ -43,6 +46,7 @@ function Registration() {
       const errorCode = error.code;
       const errorMessage = error.message;
       console.log(errorMessage, errorCode);
+      alert(errorMessage);
     }
   }
 
