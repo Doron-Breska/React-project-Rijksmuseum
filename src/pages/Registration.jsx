@@ -25,7 +25,7 @@ function Registration() {
       const user = userCredential.user;
       console.log(user);
 
-      //// wait for both updateProfile and addDoc
+      //// wait for updateProfile + addDoc
       await Promise.all([
         updateProfile(user, { displayName }),
         addDoc(collection(db, "users"), {
@@ -59,41 +59,46 @@ function Registration() {
   }
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Form.Group className="mb-3">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control
-          type="email"
-          placeholder="Enter email"
-          value={email}
-          onChange={handleEmailChange}
-        />
-        <Form.Text className="text-muted">
-          We'll never share your email with anyone else.
-        </Form.Text>
-      </Form.Group>
-      <Form.Group className="mb-3">
-        <Form.Label>Password</Form.Label>
-        <Form.Control
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={handlePasswordChange}
-        />
-      </Form.Group>
-      <Form.Group className="mb-3">
-        <Form.Label>displayName</Form.Label>
-        <Form.Control
-          type="test"
-          placeholder="displayName"
-          value={displayName}
-          onChange={handleDisplayNameChange}
-        />
-      </Form.Group>
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
-    </Form>
+    <div className="registration-container text-center p-3">
+      <Form onSubmit={handleSubmit}>
+        <Form.Group className="mb-3">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control
+            type="email"
+            placeholder="Enter your email"
+            value={email}
+            onChange={handleEmailChange}
+            id="rsgistration-email-input"
+          />
+          <Form.Text className="text-muted">
+            We'll never share your email with anyone else.
+          </Form.Text>
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            type="password"
+            placeholder="Chose a password"
+            value={password}
+            onChange={handlePasswordChange}
+            id="rsgistration-password-input"
+          />
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>User name</Form.Label>
+          <Form.Control
+            type="test"
+            placeholder="Chose a user name"
+            value={displayName}
+            onChange={handleDisplayNameChange}
+            id="rsgistration-username-input"
+          />
+        </Form.Group>
+        <Button variant="secondary" type="submit">
+          Submit
+        </Button>
+      </Form>
+    </div>
   );
 }
 

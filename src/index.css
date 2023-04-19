@@ -288,12 +288,15 @@ margin: 1rem auto;
   margin: 2rem auto;
   text-align: center;
 }
-.profile-frame ,.about-page-container {
+.profile-frame ,.about-page-container,.registration-container {
   border: 2px dotted black;
   width: 400px;
   margin: 2rem auto;
   border-radius: 5px;
   background-color: #e9e9e9;
+}
+.registration-container{
+  margin-top: 4rem;
 }
 
 .pencil-edit{
@@ -394,7 +397,10 @@ border-color: gray;
  #manage-profile-username-input,
  #manage-profile-photo-input,
  #reauthenticate-email-input,
- #reauthenticate-password-input{
+ #reauthenticate-password-input,
+ #rsgistration-email-input,
+#rsgistration-password-input,
+#rsgistration-username-input{
   border-color: gray;
 }
 #log-email-input:focus, 
@@ -406,7 +412,10 @@ border-color: gray;
 #manage-profile-username-input:focus,
 #manage-profile-photo-input:focus,
 #reauthenticate-email-input:focus,
-#reauthenticate-password-input:focus{
+#reauthenticate-password-input:focus,
+#rsgistration-email-input:focus,
+#rsgistration-password-input:focus,
+#rsgistration-username-input:focus{
     box-shadow: 0 0 0 0.2rem rgba(128, 128, 128, 0.25);
 }
 
