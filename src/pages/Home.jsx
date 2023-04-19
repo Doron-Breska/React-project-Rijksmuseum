@@ -10,13 +10,13 @@ function Home() {
   const [artistsSet, setArtistsSet] = useState(new Set());
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
-
+  // console.log("test env file",process.env.REACT_APP_API_KEY);
   useEffect(() => {
     setLoading(true);
     const fetchPaintings = async () => {
       try {
         const response = await fetch(
-          `https://www.rijksmuseum.nl/api/en/collection?key=cQfuqm3K&toppieces=True&ps=30&imgonly=true&involvedMaker=${selectArtist}&p=${page}`
+          `https://www.rijksmuseum.nl/api/en/collection?key=${process.env.REACT_APP_API_KEY}&toppieces=True&ps=30&imgonly=true&involvedMaker=${selectArtist}&p=${page}`
         );
         const result = await response.json();
         setPaintings(result.artObjects);
