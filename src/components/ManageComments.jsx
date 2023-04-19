@@ -27,7 +27,6 @@ function ManageComments() {
         fetchedComments.push({ id: doc.id, ...doc.data() });
       });
 
-      // Sort comments by timestamp
       fetchedComments.sort((a, b) => {
         return a.timestamp - b.timestamp;
       });

@@ -1,6 +1,6 @@
 import React from "react";
 import { FaFacebookSquare } from "react-icons/fa";
-import { BsInstagram } from "react-icons/bs";
+import { FaInstagramSquare } from "react-icons/fa";
 import { FaTwitterSquare } from "react-icons/fa";
 
 function Footer() {
@@ -12,19 +12,19 @@ function Footer() {
       <span className="footer-text">053 201 2000</span>
       <span className="footer-text">
         <a className="social" href="https://www.facebook.com/rijksmuseum/">
-          <FaFacebookSquare />
+          <FaFacebookSquare className="social-icons" />
         </a>
         <a
           className="social"
           href="https://www.instagram.com/rijksmuseum/?hl=en"
         >
-          <BsInstagram />
+          <FaInstagramSquare className="social-icons" />
         </a>
         <a
           className="social"
           href="https://twitter.com/rijksmuseum?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
         >
-          <FaTwitterSquare />
+          <FaTwitterSquare className="social-icons" />
         </a>
       </span>
     </footer>

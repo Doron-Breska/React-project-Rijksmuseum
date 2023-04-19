@@ -2,11 +2,8 @@ import React from "react";
 import Form from "react-bootstrap/Form";
 
 function Filters({ arrayArtists, onSelect }) {
-  //   console.log("test ", arrayArtists);
-
   function handleChange(e) {
     onSelect(e.target.value);
-    // console.log("test for handle change", e.target.value.replace(" ", "+"));
   }
 
   return (

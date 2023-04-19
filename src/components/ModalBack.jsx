@@ -67,7 +67,6 @@ function ModalBack({ selectedPainting, show, handleClose, updateNumComments }) {
         fetchedComments.push({ id: doc.id, ...doc.data() });
       });
 
-      // Sort comments by timestamp
       fetchedComments.sort((a, b) => {
         return a.timestamp - b.timestamp;
       });

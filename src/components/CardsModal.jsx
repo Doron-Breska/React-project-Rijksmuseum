@@ -42,7 +42,7 @@ function CardsModal({ paintings }) {
     const paintingUrl = paint.webImage.url;
     const paintingTitle = paint.title;
 
-    // Check if the user already liked the painting
+    //// check if the user already liked the painting
     const likesRef = collection(db, "likes");
     const likesQuery = query(
       likesRef,
@@ -52,7 +52,7 @@ function CardsModal({ paintings }) {
     const snapshot = await getDocs(likesQuery);
 
     if (snapshot.empty) {
-      // If not-
+      ////// if not-
       const likeData = {
         paintingId: paintingId,
         userId: userId,
@@ -67,7 +67,7 @@ function CardsModal({ paintings }) {
         console.error("Error adding like: ", e);
       }
     } else {
-      // If yes-
+      //// if yes-
       try {
         const likeDoc = snapshot.docs[0];
         await deleteDoc(likeDoc.ref);
