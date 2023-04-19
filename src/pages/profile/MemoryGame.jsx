@@ -54,7 +54,7 @@ function MemoryGame() {
   useEffect(() => {
     let selectedLikes;
     if (likes.length > 5) {
-      selectedLikes = selectRandomElements(likes, 5);
+      selectedLikes = selectRandomElements(likes, 6);
     } else {
       selectedLikes = likes;
     }
