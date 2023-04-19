@@ -9,7 +9,7 @@ function About() {
         <img className="about-pic" src={doron} alt="pic of me" />
       </div>
       <h3 className="text-center about-text p-3">
-        My name is Doron Breska and I’m currently doing a full stack, 840 hours
+        My name is Doron Breska and I'm currently doing a full stack, 840 hours
         bootcamp at Code Academy Berlin. <br />
         This is my third project. I built it using React, JS and Bootstarp.
         <br /> You can create account, change your acoustic info,
