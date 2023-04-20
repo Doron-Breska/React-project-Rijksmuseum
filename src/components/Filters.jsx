@@ -16,7 +16,7 @@ function Filters({ arrayArtists, onSelect }) {
             aria-label="select an painter"
             id="selectElement"
           >
-            <option value="">...</option>
+            <option value="">Artists list</option>
             {arrayArtists.map((paint, index) => (
               <option key={index} value={paint}>
                 {paint}
