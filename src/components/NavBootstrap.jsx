@@ -7,7 +7,7 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
-import { auth } from "../components/FbConfig";
+import { auth } from "./fbconfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
 function NavBootstrap() {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 import { useContext } from "react";
-import { db } from "../../components/FbConfig";
+import { db } from "../../components/fbconfig";
 import { query, where, collection, onSnapshot } from "firebase/firestore";
 import MemoryCards from "../../components/MemoryCards";
 import newAdele from "../../assets/images/newAdele.png";
