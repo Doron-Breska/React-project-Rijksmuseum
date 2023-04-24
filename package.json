@@ -2,7 +2,7 @@
   "name": "react-project-art",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Doron-Breska.github.io/React-project-Rijksmuseum",
+  "homepage": "https://Doron-Breska.github.io",
   "dependencies": {
     "@firebase/firestore": "^3.9.0",
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
