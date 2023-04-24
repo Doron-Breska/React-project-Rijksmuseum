@@ -1,6 +1,6 @@
 import React, { createContext, useEffect } from "react";
 import { useState } from "react";
-import { auth } from "../components/fbconfig";
+import { auth } from "../components/FBconfig";
 import "firebase/auth";
 import { signOut } from "firebase/auth";
 
