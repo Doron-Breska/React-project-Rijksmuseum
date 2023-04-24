@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { updateProfile } from "firebase/auth";
-import { auth } from "../components/fbconfig";
+import { auth } from "../components/FBconfig";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 
