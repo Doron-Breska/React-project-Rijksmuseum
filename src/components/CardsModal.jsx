@@ -18,7 +18,7 @@ import {
   where,
   getDocs,
 } from "firebase/firestore";
-import { db } from "./fbconfig";
+import { db } from "./FBconfig";
 
 function CardsModal({ paintings }) {
   const [numLikes, setNumLikes] = useState({});
