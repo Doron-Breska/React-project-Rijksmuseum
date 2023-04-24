@@ -5,7 +5,7 @@ import Form from "react-bootstrap/Form";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { AuthContext } from "../contexts/AuthContext";
 import { useContext } from "react";
-import { db } from "./fbconfig";
+import { db } from "./FBconfig";
 import { query, where, onSnapshot } from "firebase/firestore";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSadCry } from "@fortawesome/free-solid-svg-icons";
