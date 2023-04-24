@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import { useContext } from "react";
-import { db } from "../components/fbconfig";
+import { db } from "../components/FBconfig";
 import {
   query,
   where,
