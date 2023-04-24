@@ -16,7 +16,7 @@ function MemoryCards({ imageUrl }) {
           className="memory-crad-img"
           src={imageUrl}
           alt="memory card"
-          style={{ width: "100%" }}
+          style={{ width: "100%", objectFit: "cover" }}
         />
       ) : (
         <img

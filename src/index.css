@@ -261,6 +261,7 @@ margin: 1rem auto;
 }
 .memory-crad-img{
   border-radius: 5px;
+  height:45vh ;
 }
 
 
@@ -579,6 +580,9 @@ footer{
   margin-top: 3rem;
   max-width: 320px;
 }
+.memory-crad-img {
+  height: 42vh
+}
 }
 
 
@@ -590,6 +594,10 @@ footer{
  .comment-img, .liked-img{
    width:170px ;
  }
+.memory-crad-img {
+  height: 39vh
+}
+
 }
 
 @media (max-width:450px) {
@@ -600,4 +608,8 @@ footer{
   .comment-img, .liked-img {
     width: 120px;
   }
+  .memory-crad-img {
+    height: 36vh
+  }
+
 }
