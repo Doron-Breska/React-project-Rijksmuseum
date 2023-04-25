@@ -57,6 +57,7 @@ function ModalBack({ selectedPainting, show, handleClose, updateNumComments }) {
   async function fetchComments() {
     const paintingId = selectedPainting.id;
     const commentsRef = collection(db, "comments");
+    console.log("paintingId, line 60", paintingId);
     const commentsQuery = query(
       commentsRef,
       where("paintingId", "==", paintingId)

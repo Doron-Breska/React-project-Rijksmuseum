@@ -97,7 +97,7 @@ function NavBootstrap() {
                   placeholder="Enter email"
                   value={email}
                   onChange={handleEmailChange}
-                  id="log-email-input"
+                  // id="log-email-input"
                 />
               </Form.Group>
               <Form.Group controlId="password">
@@ -106,7 +106,7 @@ function NavBootstrap() {
                   placeholder="Password"
                   value={password}
                   onChange={handlePasswordChange}
-                  id="log-password-input"
+                  // id="log-password-input"
                 />
               </Form.Group>
 

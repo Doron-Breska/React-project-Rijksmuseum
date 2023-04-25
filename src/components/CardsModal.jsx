@@ -44,6 +44,7 @@ function CardsModal({ paintings }) {
 
     //// check if the user already liked the painting
     const likesRef = collection(db, "likes");
+    console.log("userId, paintingId", userId, paintingId);
     const likesQuery = query(
       likesRef,
       where("userId", "==", userId),
