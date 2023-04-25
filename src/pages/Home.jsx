@@ -19,6 +19,7 @@ function Home() {
           `https://www.rijksmuseum.nl/api/en/collection?key=${process.env.REACT_APP_API_KEY}&toppieces=True&ps=30&imgonly=true&involvedMaker=${selectArtist}&p=${page}`
         );
         const result = await response.json();
+        console.log('result', result)
         setPaintings(result.artObjects);
         setTotalPages(result.count / 30);
         if (artistsSet.size === 0) {
