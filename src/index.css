@@ -271,7 +271,7 @@ margin: 1rem auto;
 }
 .memory-crad-img{
   border-radius: 5px;
-  height:43vh ;
+  /* height:43vh ; */
 }
 
 
@@ -598,9 +598,9 @@ footer{
   margin-top: 3rem;
   max-width: 320px;
 }
-.memory-crad-img {
+/* .memory-crad-img {
   height: 40vh
-}
+} */
 }
 
 
@@ -612,9 +612,9 @@ footer{
  .comment-img, .liked-img{
    width:170px ;
  }
-.memory-crad-img {
+/* .memory-crad-img {
   height: 37vh
-}
+} */
 
 }
 
@@ -626,8 +626,8 @@ footer{
   .comment-img, .liked-img {
     width: 120px;
   }
-  .memory-crad-img {
+  /* .memory-crad-img {
     height: 34vh
-  }
+  } */
 
 }
