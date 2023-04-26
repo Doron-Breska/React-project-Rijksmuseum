@@ -431,7 +431,7 @@ border-color: gray;
   border-color: gray !important;
 }
 .test-gray-glow:focus {
-  box-shadow: 0 0 0 0.2rem rgba(128, 128, 128, 0.25); !important;
+  box-shadow: 0 0 0 0.2rem rgba(128, 128, 128, 0.25);
 }
 
 .test-profile{
