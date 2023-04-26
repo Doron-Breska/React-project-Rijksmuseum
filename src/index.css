@@ -67,8 +67,8 @@ transform: scale(1.05);
 } */
 
 .paint:hover{
-border-color:rgb(254, 141, 50) !important;
-border-color: linear-gradient(90deg, rgba(254, 141, 50, 1) 0%, rgba(255, 0, 0, 1) 51%) !important ;
+border-color:rgb(254, 141, 50) ;
+/* border-color: linear-gradient(90deg, rgba(254, 141, 50, 1) 0%, rgba(255, 0, 0, 1) 51%) !important ; */
 transform: scale(1.05);
 }
 
