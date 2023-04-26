@@ -98,6 +98,7 @@ function NavBootstrap() {
                   value={email}
                   onChange={handleEmailChange}
                   // id="log-email-input"
+                  className="test-gray-glow"
                 />
               </Form.Group>
               <Form.Group controlId="password">
@@ -107,6 +108,7 @@ function NavBootstrap() {
                   value={password}
                   onChange={handlePasswordChange}
                   // id="log-password-input"
+                  className="test-gray-glow"
                 />
               </Form.Group>
 
