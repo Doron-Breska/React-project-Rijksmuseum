@@ -598,9 +598,9 @@ footer{
   margin-top: 3rem;
   max-width: 320px;
 }
-/* .memory-crad-img {
-  height: 40vh
-} */
+.memory-crad-img {
+  object-fit: cover;
+}
 }
 
 
