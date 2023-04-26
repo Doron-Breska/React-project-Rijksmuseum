@@ -42,7 +42,7 @@ function NavBootstrap() {
   }
 
   return (
-    <Navbar bg="light" expand="md" style={{ width: "100%" }}>
+    <Navbar bg="light" expand="md" style={{ width: "100vw" }}>
       <Container fluid>
         <Navbar.Brand>rijksmuseum</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
