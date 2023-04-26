@@ -21,8 +21,10 @@ function Profile() {
       ) : (
         <>
           <div className="profile-frame">
-            <UsersDetailsTable />
-            <ManageLogInfo />
+            <div className="profile-inner-frame">
+              <UsersDetailsTable />
+              <ManageLogInfo />
+            </div>
           </div>
         </>
       )}
