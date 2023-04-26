@@ -55,7 +55,7 @@ row-gap: 50px;
   margin-right: 1rem; */
   margin: 0 auto;
   /* border: 4px solid rgba(255, 255, 255, 0.432)!important; */
-  border: 4px solid rgba(255, 255, 255, 0.432) ;
+  /* border: 4px solid rgba(255, 255, 255, 0.432) ; */
   transition: border-color 0.2s ease-in;
   transition: scale .1s ease-in-out;
 }
