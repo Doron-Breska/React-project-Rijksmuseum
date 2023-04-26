@@ -84,6 +84,9 @@ function MemoryGame() {
       </div>
       <div className="memory-game-container">
         <div className="memory-game">
+          {cards.length === 0 && (
+            <h3>You have to like some paintings first.</h3>
+          )}
           {cards.map((cardUrl, index) => (
             <MemoryCards key={index} imageUrl={cardUrl} />
           ))}

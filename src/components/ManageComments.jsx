@@ -58,7 +58,9 @@ function ManageComments() {
   return (
     <div className="manage-comments-container">
       <div className="manage-comments">
-        {comments.length === 0 && <h3>no comments yet</h3>}
+        {comments.length === 0 && (
+          <h3 className="text-center">You did not commemnt yet</h3>
+        )}
         {comments.map((comment) => (
           <div key={comment.id} className="comment">
             <img
