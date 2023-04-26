@@ -109,7 +109,6 @@ function NavBootstrap() {
                   // id="log-password-input"
                 />
               </Form.Group>
-
               <Button
                 style={{ width: "10rem" }}
                 variant="secondary"
