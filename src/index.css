@@ -271,7 +271,7 @@ margin: 1rem auto;
 }
 .memory-crad-img{
   border-radius: 5px;
-  /* height:43vh ; */
+  object-fit: cover;
 }
 
 
@@ -598,9 +598,9 @@ footer{
   margin-top: 3rem;
   max-width: 320px;
 }
-.memory-crad-img {
+/* .memory-crad-img {
   object-fit: cover;
-}
+} */
 }
 
 
