@@ -91,24 +91,25 @@ function NavBootstrap() {
             </Button>
           ) : (
             <Form className="d-flex gap-2" onSubmit={handleSubmit}>
-              <Form.Group controlId="email" className="test-gray-glow">
+              <Form.Group controlId="email">
                 <Form.Control
                   type="email"
                   placeholder="Enter email"
                   value={email}
                   onChange={handleEmailChange}
-                  // id="log-email-input"
+                  id="log-email-input"
                 />
               </Form.Group>
-              <Form.Group controlId="password" className="test-gray-glow">
+              <Form.Group controlId="password">
                 <Form.Control
                   type="password"
                   placeholder="Password"
                   value={password}
                   onChange={handlePasswordChange}
-                  // id="log-password-input"
+                  id="log-password-input"
                 />
               </Form.Group>
+
               <Button
                 style={{ width: "10rem" }}
                 variant="secondary"
