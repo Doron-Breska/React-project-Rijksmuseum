@@ -74,7 +74,7 @@ transform: scale(1.05);
 
 
 #counters-btn{
-  margin-bottom: 25%;
+  margin-bottom: 28%;
 }
 
 #comments-btn {
@@ -170,7 +170,7 @@ margin: 0.5rem auto;
 }
 .comment:hover{
     border: 2px solid rgb(85, 83, 83);
-    border: linear-gradient(100deg, rgba(211, 211, 211, 1), rgb(111, 108, 108)) 1;
+    /* border: linear-gradient(100deg, rgba(211, 211, 211, 1), rgb(111, 108, 108)) 1; */
     transform: scale(1.05);
 }
 .comment-modal{
@@ -228,7 +228,7 @@ margin: 1rem auto;
 }
 .liked-painting:hover {
   border: 2px solid rgb(85, 83, 83);
-  border: linear-gradient(100deg, rgba(211, 211, 211, 1), rgb(111, 108, 108)) 1;
+  /* border: linear-gradient(100deg, rgba(211, 211, 211, 1), rgb(111, 108, 108)) 1; */
   transform: scale(1.05);
 }
 
@@ -263,7 +263,7 @@ margin: 1rem auto;
 
 .memory-game-card:hover{
     border: 3px solid rgb(85, 83, 83);
-    border: linear-gradient(100deg, rgba(211, 211, 211, 1), rgb(111, 108, 108)) 1;
+    /* border: linear-gradient(100deg, rgba(211, 211, 211, 1), rgb(111, 108, 108)) 1; */
     transform: scale(1.03);
 }
 .memory-crad-img{
