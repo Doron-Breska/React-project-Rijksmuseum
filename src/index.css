@@ -315,10 +315,10 @@ background-color: rgb(232, 232, 232);
 
 .profile-frame ,.about-page-container,.registration-container {
   border: 2px dotted black;
-  width: 400px;
+  max-width: 380px;
   /* margin: 2rem auto; */
-  margin-left: calc((100% - 400px) / 2);
   margin-right: calc((100% - 400px) / 2);
+  margin-left: calc((100% - 400px) / 2);
   border-radius: 5px;
   background-color: #e9e9e9;
 }
