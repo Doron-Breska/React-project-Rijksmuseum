@@ -608,21 +608,35 @@ footer{
 
 
 @media (max-width:540px) {
+
   .manage-comments,
   .manage-likes,
   .memory-game {
     grid-template-columns: 1fr;
     justify-content: center;
   }
- /* .comment, .liked-painting, .memory-game-card {
-   width: 174px;
- }
+
+  .comment,
+  .liked-painting,
+  .memory-game-card {
+    width: 260px;
+  }
+  .comment-img {
+  width: 100%;
+  }
+  .liked-img{
+    width: 100%;
+  }
+
+  .memory-game-card {
+    height: 400px;
+  }
+
+  /*
  .comment-img, .liked-img{
    width:170px ;
  }
- .memory-game-card {
-  height: 250px;
-}  */
+ */
 }
 
 /* @media (max-width:450px) {
