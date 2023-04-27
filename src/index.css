@@ -455,6 +455,8 @@ border-color: gray;
   flex-direction: column;
   max-width: 300px;
   margin: 2rem auto;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 .test-user-name{
 width: 100px;
