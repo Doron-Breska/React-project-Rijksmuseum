@@ -614,7 +614,7 @@ footer{
     grid-template-columns: 1fr;
     justify-content: center;
   }
- .comment, .liked-painting, .memory-game-card {
+ /* .comment, .liked-painting, .memory-game-card {
    width: 174px;
  }
  .comment-img, .liked-img{
@@ -622,10 +622,10 @@ footer{
  }
  .memory-game-card {
   height: 250px;
-} 
+}  */
 }
 
-@media (max-width:450px) {
+/* @media (max-width:450px) {
   .comment, .liked-painting ,.memory-game-card {
     width: 124px;
   }
@@ -636,4 +636,4 @@ footer{
 .memory-game-card {
   height: 200px;
 }
-}
+} */
