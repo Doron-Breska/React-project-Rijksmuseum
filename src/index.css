@@ -59,11 +59,6 @@ row-gap: 50px;
   transition: scale .1s ease-in-out;
 }
 
-/* .paint:hover{
-border-color:rgb(254, 141, 50) !important;
-border-color: linear-gradient(90deg, rgba(254, 141, 50, 1) 0%, rgba(255, 0, 0, 1) 51%) !important;
-transform: scale(1.05);
-} */
 
 .paint:hover{
 border-color:rgb(254, 141, 50) ;
@@ -632,22 +627,4 @@ footer{
     height: 400px;
   }
 
-  /*
- .comment-img, .liked-img{
-   width:170px ;
- }
- */
 }
-
-/* @media (max-width:450px) {
-  .comment, .liked-painting ,.memory-game-card {
-    width: 124px;
-  }
-
-  .comment-img, .liked-img {
-    width: 120px;
-  }
-.memory-game-card {
-  height: 200px;
-}
-} */
