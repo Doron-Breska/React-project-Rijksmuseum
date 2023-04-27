@@ -5,6 +5,7 @@ import { updateProfile } from "firebase/auth";
 import { auth } from "../components/FBconfig";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
 
 function Registration() {
   const [email, setEmail] = useState("");
@@ -12,6 +13,7 @@ function Registration() {
   const [displayName, setDisplayName] = useState("");
 
   const db = getFirestore();
+  const navigate = useNavigate();
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -39,6 +41,7 @@ function Registration() {
       setEmail("");
       setPassword("");
       setDisplayName("");
+      navigate("/profile");
     } catch (error) {
       const errorCode = error.code;
       const errorMessage = error.message;
