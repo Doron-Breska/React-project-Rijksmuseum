@@ -357,19 +357,6 @@ background-color: rgb(232, 232, 232);
 }
 
 
-/* .filter-header::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 20%;
-  background-image: url("https://th.bing.com/th/id/OIG.dJazC.15_73.KhLVKCbv?pid=ImgGn");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  z-index: 1;
-} */
 
 .manage-profile-headrer{
   color: #fa4700;
@@ -386,16 +373,16 @@ background-color: rgb(232, 232, 232);
   font-weight: 800;
 }
 .filter-background-div{
-  margin-left: 1rem;
-  margin-right: 1rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 
 
 
 .select-painter{
   align-self: flex-end;
-  margin-right: 1rem;
-  margin-left: 1rem;
+  margin-right: 2rem;
+  margin-left: 2rem;
   margin-bottom: 3rem;
   
 }
