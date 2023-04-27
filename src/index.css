@@ -312,10 +312,16 @@ background-color: rgb(232, 232, 232);
   margin: 2rem auto;
   text-align: center;
 }
+.profile-outer-frame{
+  max-width: 430px;
+  margin: 2rem auto;
+}
 .profile-frame ,.about-page-container,.registration-container {
   border: 2px dotted black;
   width: 400px;
-  margin: 2rem auto;
+  /* margin: 2rem auto; */
+  margin-left: 1rem;
+  margin-right: 1rem;
   border-radius: 5px;
   background-color: #e9e9e9;
 }
@@ -455,9 +461,8 @@ border-color: gray;
   flex-direction: column;
   max-width: 300px;
   margin: 2rem auto;
-  margin-left: 1rem;
-  margin-right: 1rem;
 }
+
 .test-user-name{
 width: 100px;
 height: 100px;
