@@ -10,7 +10,9 @@ function Filters({ arrayArtists, onSelect }) {
     <>
       <div className="filter-container">
         <div className="filter-background-div">
-          <h3 className="filter-header">Rijksmuseum's top pieces gallery</h3>
+          <h3 className="filter-header ml-3">
+            Rijksmuseum's top pieces gallery
+          </h3>
         </div>
         <div className="select-painter">
           <Form.Select
