@@ -613,6 +613,12 @@ footer{
 
 
 @media (max-width:540px) {
+  .manage-comments,
+  .manage-likes,
+  .memory-game {
+    grid-template-columns: 1fr;
+    justify-content: center;
+  }
  .comment, .liked-painting, .memory-game-card {
    width: 174px;
  }
