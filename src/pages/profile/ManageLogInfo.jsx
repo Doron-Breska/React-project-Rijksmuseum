@@ -7,7 +7,7 @@ import Form from "react-bootstrap/Form";
 import Reauthenticate from "../../components/Reauthenticate";
 import { FiEdit } from "react-icons/fi";
 
-function ManageLogInfo() {
+function ManageLogInfo({ onRefresh }) {
   const { isUserLogged, checkForCurrentUser } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -50,8 +50,8 @@ function ManageLogInfo() {
       }
       alert("Profile updated successfully");
       // window.location.reload();
-      checkForCurrentUser(); //test
-      // Show success message to user here
+      checkForCurrentUser();
+      onRefresh();
     } catch (error) {
       console.log(error.message);
       alert(error.message);

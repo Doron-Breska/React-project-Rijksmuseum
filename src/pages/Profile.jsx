@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import UsersDetailsTable from "../components/UsersDetailsTable";
 import { useLocation } from "react-router-dom";
 import ManageLogInfo from "./profile/ManageLogInfo";
 
 function Profile() {
+  const [refreshKey, setRefreshKey] = useState(0);
+
   const location = useLocation();
+
+  const refresh = () => {
+    setRefreshKey((prevKey) => prevKey + 1);
+  };
 
   return (
     // <div>
@@ -22,7 +28,7 @@ function Profile() {
         <>
           <div className="profile-frame">
             <UsersDetailsTable />
-            <ManageLogInfo />
+            <ManageLogInfo onRefresh={refresh} />
           </div>
         </>
       )}
