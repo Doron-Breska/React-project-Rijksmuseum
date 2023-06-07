@@ -8,7 +8,7 @@ import Reauthenticate from "../../components/Reauthenticate";
 import { FiEdit } from "react-icons/fi";
 
 function ManageLogInfo() {
-  const { isUserLogged } = useContext(AuthContext);
+  const { isUserLogged, checkForCurrentUser } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [displayName, setDisplayName] = useState("");
@@ -49,7 +49,8 @@ function ManageLogInfo() {
         setPhotoURL("");
       }
       alert("Profile updated successfully");
-      window.location.reload();
+      // window.location.reload();
+      checkForCurrentUser(); //test
       // Show success message to user here
     } catch (error) {
       console.log(error.message);

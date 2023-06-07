@@ -43,7 +43,9 @@ export const AuthContextProvider = (props) => {
   console.log("test-test", isUserLogged);
 
   return (
-    <AuthContext.Provider value={{ logOut, setUserOnLogin, isUserLogged }}>
+    <AuthContext.Provider
+      value={{ logOut, setUserOnLogin, isUserLogged, checkForCurrentUser }}
+    >
       {props.children}
     </AuthContext.Provider>
   );
