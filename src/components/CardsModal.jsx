@@ -153,27 +153,17 @@ function CardsModal({ paintings }) {
         return (
           <Card
             key={paint.id}
-            className="bg-dark text-white my-3 paint"
+            className="bg-dark text-white my-3 paint "
             style={{ borderRadius: "9px" }}
           >
             <Card.Img src={paint.webImage.url} alt="Card image" />
             <Card.ImgOverlay>
-              <Button
-                className="btn position-absolute bottom-0 end-0"
-                variant="secondary"
-                disabled
-                id="counters-btn"
-              >
-                {numLikes[paint.id] || 0} - <BsFillHeartFill />
-                <br />
-                {numComments[paint.id] || 0} - <BsChatSquareTextFill />
-              </Button>
-              <Card.Title className="bg-secondary d-inline px-1">
+              <Card.Title className="bg-secondary d-inline px-1 rounded-1 title">
                 {paint.title}
               </Card.Title>
             </Card.ImgOverlay>
             <Card.Text className="text-center">{paint.longTitle}</Card.Text>
-            <Card.Text className="d-flex justify-content-between">
+            <Card.Text className="d-flex justify-content-between mb-0">
               <Button
                 disabled={!isUserLogged}
                 variant="secondary"
@@ -197,6 +187,12 @@ function CardsModal({ paintings }) {
                 onClick={() => handleShareButtonClick(paint)}
               >
                 <BsShareFill />
+              </Button>
+            </Card.Text>
+            <Card.Text className="text-center couter-btn">
+              <Button className="btn" variant="secondary" disabled>
+                <sup>{numLikes[paint.id] || 0}</sup> <BsFillHeartFill />{" "}
+                <sup>{numComments[paint.id] || 0}</sup> <BsChatSquareTextFill />
               </Button>
             </Card.Text>
           </Card>
